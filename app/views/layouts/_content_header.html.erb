@@ -1,0 +1,50 @@
+<div class="wrapper">
+	<nav>
+		<ul id="top_nav">
+			<li><a href="Support.html">Support</a></li>
+			<li><a href="#">FAQs</a></li>
+			<li class="end"><a href="#">Sitemap</a></li>
+		</ul>
+	</nav>
+	<span class="date"><%= DateTime.now.strftime('%m %d %Y')%></span>
+</div>
+<div class="wrapper">
+	<h1><a href="index.html" id="logo"></a></h1>
+</div>
+<div id="nav">
+	<ul class="level1">
+  	<li class="level1-li first">
+  		<a href="/" style="font-weight:bold;font-size:14px;color:white;">Home</a>
+  	</li>
+    <li class="level1-li">
+    	<a href="#" style="font-weight:bold;font-size:14px;color:white;">About us</a>
+    </li>
+    <li class="level1-li">
+    	<a href="#" style="font-weight:bold;font-size:14px;color:white;">Services</a>
+    </li>
+    <li class="level1-li">
+    	<a href="#" style="font-weight:bold;font-size:14px;color:white;">Contact us</a>
+    </li>
+    <li class="level1-li">
+    	<% if user_signed_in? %>
+    		<%= link_to 'Logout', destroy_user_session_path, :method=>'delete', :id => "sign_out", :style => "font-weight:bold;font-size:14px;color:white;" %>        
+    	<% else %>
+    		<%= link_to 'Register', new_user_registration_path, :style => "font-weight:bold;font-size:14px;color:white;" %>
+    	<% end %>
+	</li>
+  </ul>
+</div>
+<div class="wrapper">
+	<p style="float:right;color:white;font-size:16px;margin-top:100px;margin-left:-180px;font-weight:bold;">
+		Achieve your dreams without money.Barter your <br />skills<br /><br />- Specify what you need<br />- Skills snd work description<br />- Geographic Preferences<br />- Time Zone Preference
+  </p>
+	<div class="text">
+		<span class="tittle" style="color:black;margin-left:150px;">
+			Starter<span>Barter </span>
+		</span>
+		<p></span><span></span><span></span></p>
+	</div>
+  <div id="gallery">
+		<a href="ourmission.html" class="button right" style="margin-top:80px;">Get Started Now</a>	
+	</div>
+</div>

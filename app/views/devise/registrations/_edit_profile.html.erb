@@ -1,0 +1,63 @@
+  <%= form_for(user, :as => resource_name, :url => registration_path(resource_name), :html => { :id => "newsletter", :method => :put }) do |f| %>
+  
+      <%= devise_error_messages! %>
+
+      <h4>Email</h4><br />
+      <div class="bg">
+        <%= f.email_field :email, :class => "input" %>
+      </div> 
+
+    	<h4>First Name</h4><br />
+      <div class="bg">  
+        <%= f.text_field :first_name, :placeholder => "Type Your First Name Here", :class => "input" %>
+      </div>
+
+    	<h4>Last Name</h4><br />
+      <div class="bg">
+        <%= f.text_field :last_name, :placeholder => "Type Your Last Name Here", :class => "input" %>
+      </div>
+
+      <h4>Username</h4><br />
+      <div class="bg">
+        <%= f.text_field :username, :placeholder => "Type Your Username Here", :class => "input" %>
+      </div>
+      
+      <h4>Password</h4><span class="hint">(minimum 8 characters required)</span><br /><i>(leave blank if you don't want to change it)</i>
+      <div class="bg">
+        <%= f.password_field :password, :autocomplete => "off", :placeholder => "Type Your Password Here", :class => "input" %>
+      </div>
+
+      <h4>Retype Password</h4><br />
+      <div class="bg"> 
+        <%= f.password_field :password_confirmation, :placeholder => "Retype your Password Here", :class => "input" %>
+      </div>
+
+    <h4>I am a</h4><span class="hint">(select multiple skills)</span>
+      <%= f.select :iam, options_for_select(
+      [["Select One", ""], "Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"]), {}, {:multiple => true} %><br/>
+      <h4>I am looking for </h4><span class="hint">(select multiple skills)</span>
+        <%= f.select :iamlookingfor, options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"]), {}, {:multiple => true} %><br/>
+
+      <h4>Country</h4><br/>
+      <div >
+        <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
+      </div><br />
+
+      <% if !current_user.provider.present? %>
+        <h4>Current Password</h4><i>(we need your current password to confirm your changes)</i><br />
+        <div class="bg"> 
+          <%= f.password_field :current_password, :class => "input" %>
+        </div>
+      <% end %>
+
+      <div><%= f.submit "Update info", :class=> "button" %></div>
+    <% end %>
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+ 
+ 
+
+

@@ -1,0 +1,33 @@
+
+<!-- content -->
+<article id="content">
+	<section class="col1">
+		<h2></h2>
+		<div class="wrapper pad_bot2">
+			<figure class="left marg_right1">
+				<% if !user_signed_in? %>
+					<%= render :partial => 'devise/sessions/new_session' %>
+				<% else %>
+					<%= render :partial => 'devise/registrations/edit_profile', :locals => {:user => @user } %>
+				<% end %>
+      		</figure>
+			<p class="pad_bot1 pad_top1"><span class="color1"></span></p>
+			<p></p>
+		</div>
+		<div class="wrapper pad_bot2">
+			<figure class="left marg_right1"></figure>
+			<p class="pad_bot1 pad_top1"><span class="color1"></span></p>
+			<p></p>
+		</div>
+		<div class="wrapper">
+			<figure class="left marg_right1"></figure>
+			<p class="pad_bot1 pad_top1"><span class="color1"></span></p>
+			<p></p>
+		</div>
+  </section>
+	<section class="col2">
+		<%= %>
+		<%= render :partial => 'home/content' %>
+	</section>
+</article>
+<!-- / content -->
