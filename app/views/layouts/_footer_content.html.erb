@@ -6,7 +6,7 @@
 				<div class="bg">
 					<input class="input" type="text" value="Type Your Email Here"  onblur="if(this.value=='') this.value='Type Your Email Here'" onFocus="if(this.value =='Type Your Email Here' ) this.value=''">
 				</div>
-				<a href="#" class="button" onClick="document.getElementById('ContactForm').submit()">Subscribe</a>
+				<a href="/contact_us" class="button" onClick="document.getElementById('ContactForm').submit()">Subscribe</a>
 			</div>
 		</form>
   </section>
@@ -23,9 +23,9 @@
 		<ul id="icons">
 
 			<li><a href="#">
-			<%= link_to(image_tag('icon1.jpg',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %>Facebook</a></li>
-			<li><a href="#"><img src="/assets/icon2.jpg" alt="">Twitter</a></li>
-			<li><a href="#"><img src="/assets/icon3.jpg" alt="">LinkedIn</a></li>
+			<%= link_to(image_tag('icon1.jpg',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %></li>
+			<li><a href="#"><img src="/assets/icon2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="/assets/icon3.jpg" alt=""></a></li>
 		</ul>
   </section>
 	<section class="col_1">
