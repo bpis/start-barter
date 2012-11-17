@@ -9,16 +9,36 @@
     </section>
   </aside>
 </div>
-<h4 class="email">Email</h4><div class="email_txt"><%= text_field_tag :email, user.email, :readonly => true if user.email.present? %></div>
-<h4 class="username">Username</h4><div class="username_txt"><%= text_field_tag :email,user.username, :readonly => true if user.username.present? %></div>
-<h4 class="fname">First Name</h4><div class="fname_txt"><%= text_field_tag :email,user.first_name, :readonly => true if user.first_name.present? %></div>
-<h4 class="lname">Last Name</h4><div class="lname_txt"><%= text_field_tag :email,user.last_name, :readonly => true if user.last_name.present? %></div>
-<h4 class="country">Country</h4><div class="country_txt"><%= text_field_tag :email,user.country.name, :readonly => true if user.country.present?%></div>
-<h4>I am</h4><%= text_field_tag :email,user.iam, :readonly => true if user.iam.present? %>
-<h4>Looking for</h4><%= text_field_tag :email,user.iamlookingfor.html_safe, :readonly => true if user.iamlookingfor.present? %>
-
-<h4> Recommended People for you </h4> 
+<div>
+	<div class="email"> <h4>email</h4> </div>
+	<div class="email_txt"><%= text_field_tag :email, user.email, :readonly => true if user.email.present? %></div>
+</div>
+<div>
+	<div class="username"> <h4>Username</h4> </div>
+	<div class="username_txt"><%= text_field_tag :username,user.username, :readonly => true if user.username.present? %></div>
+</div>
+<div>
+	<div class="fname"> <h4>First Name</h4> </div>
+	<div class="fname_txt"><%= text_field_tag :first_name,user.first_name, :readonly => true if user.first_name.present? %></div>
+</div>
+<div>
+	<div class="lname"> <h4>Last Name</h4> </div>
+	<div class="lname_txt"><%= text_field_tag :last_name,user.last_name, :readonly => true if user.last_name.present? %></div>
+</div>
+<div>
+	<div class="country"> <h4>Country</h4> </div>
+	<div class="country_txt"><%= text_field_tag :country,user.country.name, :readonly => true if user.country.present?%></div>
+</div>
+<div>
+	<div class="iam"> <h4>I am</h4> </div>
+	<div class="iam_txt"><%= text_area_tag :iam,user.iam, :readonly => true if user.iam.present? %></div>
+</div>
+<div>
+	<div class="lookingfor"> <h4>Looking for</h4> </div>
+	<div class="lookingfor_txt"><%= text_area_tag :iamlookinfor,user.iamlookingfor.html_safe, :readonly => true if user.iamlookingfor.present? %></div>
+</div>
+<!-- <h4> Recommended People for you </h4> 
 	<% @users.each do |user| %>
 		<%= link_to user.username if user.iamlookingfor == user.iam %>
-	<% end %><br /><br />
-<%= link_to "Edit profile", edit_user_registration_path, :class=> "button" %>
+	<% end %><br /><br /> -->
+<div class="btn_edit"><%= link_to "Edit profile", edit_user_registration_path, :class=> "button" %></div>

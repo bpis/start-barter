@@ -143,7 +143,11 @@ aside {
 .lname_txt{position: absolute; left: 680px; top: 280px;}
 .country{position: absolute; left: 260px; top: 320px;}
 .country_txt{position: absolute; left: 320px; top: 320px;}
-
+.iam{position: absolute; left: 280px; top: 360px;}
+.iam_txt{position: absolute; left: 320px; top: 360px;}
+.lookingfor{position: absolute; left: 230px; top: 420px;}
+.lookingfor_txt{position: absolute; left: 320px; top: 420px;}
+.btn_edit{position: absolute; left: 320px; top: 480px;}
 /*sidebar {
 background-color: #0FF;
 width: 80px;
