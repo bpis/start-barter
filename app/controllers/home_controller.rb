@@ -6,5 +6,7 @@ class HomeController < ApplicationController
     @users = User.all
   end
   
-
+  # def recommend_user
+    # @users = User.recommend_user(params[:user])
+  # end
 end

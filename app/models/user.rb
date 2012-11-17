@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessor :login
-  attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor
+  attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture
 
   belongs_to :country
+  mount_uploader :profile_picture, ProfilePictureUploader
   #has_one :country
   # attr_accessible :title, :body
   #validations
@@ -84,6 +85,13 @@ class User < ActiveRecord::Base
       end
     end
   end
-
+  
+  # def self.recommend_user(params, user)
+    # @users.each do |user|
+      # if user.iamlookingfor == user.iam
+        # user.username
+      # end
+    # end
+  # end
 
 end

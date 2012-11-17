@@ -1,13 +1,24 @@
-<h3>Profile</h3>
-<div><h4>Email</h4><%= text_field_tag :email, user.email if user.email.present? %></div>
-<h4>Username</h4><%= text_field_tag :email,user.username if user.username.present? %>
-<h4>I am</h4><%= text_field_tag :email,user.iam if user.iam.present? %>
-<h4>Looking for</h4><%= text_field_tag :email,user.iamlookingfor.html_safe if user.iamlookingfor.present? %>
-<h4>First Name</h4><%= text_field_tag :email,user.first_name if user.first_name.present? %>
-<h4>Last Name</h4><%= text_field_tag :email,user.last_name if user.last_name.present? %>
-<h4>Country</h4><%= text_field_tag :email,user.country.name if user.country.present?%>
+<div class="row">
+  <aside class="span4">
+    <section>
+    	<% if current_user.profile_picture.present? %>
+			<p><%= link_to (image_tag current_user.profile_picture , :alt => "Profile Picture", :width => 140, :height => 140, :title => "Change?"), edit_user_registration_path %></p>
+		<% else %>
+			<p><%= link_to image_tag('default_profile_image.png', :alt => "Profile Picture", :width => 140, :height => 140, :title => "change?").to_s, edit_user_registration_path %></p>
+		<% end %>
+    </section>
+  </aside>
+</div>
+<h4 class="email">Email</h4><div class="email_txt"><%= text_field_tag :email, user.email, :readonly => true if user.email.present? %></div>
+<h4 class="username">Username</h4><div class="username_txt"><%= text_field_tag :email,user.username, :readonly => true if user.username.present? %></div>
+<h4 class="fname">First Name</h4><div class="fname_txt"><%= text_field_tag :email,user.first_name, :readonly => true if user.first_name.present? %></div>
+<h4 class="lname">Last Name</h4><div class="lname_txt"><%= text_field_tag :email,user.last_name, :readonly => true if user.last_name.present? %></div>
+<h4 class="country">Country</h4><div class="country_txt"><%= text_field_tag :email,user.country.name, :readonly => true if user.country.present?%></div>
+<h4>I am</h4><%= text_field_tag :email,user.iam, :readonly => true if user.iam.present? %>
+<h4>Looking for</h4><%= text_field_tag :email,user.iamlookingfor.html_safe, :readonly => true if user.iamlookingfor.present? %>
+
 <h4> Recommended People for you </h4> 
 	<% @users.each do |user| %>
 		<%= link_to user.username if user.iamlookingfor == user.iam %>
-	<% end %>
-<%= link_to "Edit profile", edit_user_registration_path %>
+	<% end %><br /><br />
+<%= link_to "Edit profile", edit_user_registration_path, :class=> "button" %>

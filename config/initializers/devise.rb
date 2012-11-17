@@ -5,7 +5,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "admin@start-barter.com"
-  config.omniauth :facebook, "274580322644956", "147c0405c34a77829d19b932bca10a1d", :scope => 'email, user_about_me, user_birthday, user_hometown, user_location, user_relationships, user_status, read_stream, offline_access, read_friendlists', :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  config.omniauth :facebook, "365146530246420", "a16cf125789e445b2f2e12016d9e4ed2", :scope => 'email, user_about_me, user_birthday, user_hometown, user_location, user_relationships, user_status, read_stream, offline_access, read_friendlists', :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

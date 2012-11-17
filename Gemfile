@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'mysql2', :group => [:development, :test]
 gem 'carrierwave'
+gem "rmagick"  
 gem "devise", ">= 2.1.2"
 gem "omniauth-facebook", "1.4.0"
 

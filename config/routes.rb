@@ -1,9 +1,5 @@
 StartBarter::Application.routes.draw do
   
-  authenticated :user do
-    
-    root :to => 'home#index'
-  end
   devise_for :users,
       :controllers => { 
       :sessions           => 'devise/sessions', 

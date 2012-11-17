@@ -26,8 +26,7 @@
 		</div>
   </section>
 	<section class="col2">
-		<%= %>
-		<%= render :partial => 'home/content' %>
+		<%= render :partial => 'home/content' if !current_user.present? %>
 	</section>
 </article>
 <!-- / content -->

@@ -5,7 +5,7 @@
 .col_2 {width:131px;padding-left:50px;float:left}
 .cols {width:256px}
 /* index.html */
-#page1 header {height:544px;background:url(/assets/header_bg.png) center 131px no-repeat}
+/*#page1 header {height:544px;background:url(/assets/header_bg.png) center 131px no-repeat}
 /* index-1.html */
 #page2 .col2 figure {float:left;width:53px}
 #page2 .col2 .left {width:195px}

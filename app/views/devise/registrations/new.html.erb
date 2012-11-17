@@ -44,7 +44,8 @@
       <div >
         <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
       </div><br />
-
+		<h4> Profile Picture </h4>
+		<div><%= f.file_field :profile_picture %></div><br />
       <div><%= f.submit "Sign up", :class=> "button" %></div>
     <% end %>
 

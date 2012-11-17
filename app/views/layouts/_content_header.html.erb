@@ -34,6 +34,7 @@
 	</li>
   </ul>
 </div>
+<% if !current_user.present? %>
 <div class="wrapper">
 	<p style="float:right;color:white;font-size:16px;margin-top:100px;margin-left:-180px;font-weight:bold;">
 		Achieve your dreams without money.Barter your <br />skills<br /><br />- Specify what you need<br />- Skills snd work description<br />- Geographic Preferences<br />- Time Zone Preference
@@ -48,3 +49,4 @@
 		<a href="ourmission.html" class="button right" style="margin-top:80px;">Get Started Now</a>	
 	</div>
 </div>
+<% end %>
