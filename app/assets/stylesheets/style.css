@@ -22,7 +22,7 @@ h3 {font-size:24px;line-height:1.2em;color:#000;padding:37px 0 13px 0;letter-spa
 h4{color:#000000;}
 p {padding-bottom:18px}
 /* header */
-header {height:181px;width:100%;overflow:hidden;background:url(/assets/bg_header2.jpg) center 131px no-repeat}*/
+header {height:171px;width:100%;overflow:hidden;background:url(/assets/bg_header2.jpg) center 131px no-repeat}*/
 #top_nav {float:right;padding:5px 32px 0 0}
 #top_nav li {float:left;padding-right:8px;margin-right:7px;background:url(/assets/line_top.gif) right 5px no-repeat}
 #top_nav li a {color:#000;text-decoration:none;font-size:12px}
@@ -133,7 +133,7 @@ aside {
   }
 }
 
-.email{position: absolute; left: 270px; top: 240px;}
+.email{position: absolute; left: 275px; top: 240px;}
 .email_txt{position: absolute; left: 320px; top: 240px;}
 .username{position: absolute; left: 600px; top: 240px;}
 .username_txt{position: absolute; left: 680px; top: 240px;}
@@ -145,7 +145,7 @@ aside {
 .country_txt{position: absolute; left: 320px; top: 320px;}
 .iam{position: absolute; left: 280px; top: 360px;}
 .iam_txt{position: absolute; left: 320px; top: 360px;}
-.lookingfor{position: absolute; left: 230px; top: 420px;}
+.lookingfor{position: absolute; left: 235px; top: 420px;}
 .lookingfor_txt{position: absolute; left: 320px; top: 420px;}
 .btn_edit{position: absolute; left: 320px; top: 480px;}
 /*sidebar {

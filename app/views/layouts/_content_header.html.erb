@@ -9,21 +9,22 @@
 	<span class="date"><%= DateTime.now.strftime('%m %d %Y')%></span>
 </div>
 <div class="wrapper">
-	<h1><a href="index.html" id="logo"></a></h1>
+	<h1><a href="/" id="logo"></a></h1>
 </div>
 <div id="nav">
 	<ul class="level1">
+	
   	<li class="level1-li first">
   		<a href="/" style="font-weight:bold;font-size:14px;color:white;">Home</a>
   	</li>
     <li class="level1-li">
-    	<a href="#" style="font-weight:bold;font-size:14px;color:white;">About us</a>
+    	<%= link_to "About Us", about_us_path, :style => "font-weight:bold;font-size:14px;color:white;" %>
     </li>
     <li class="level1-li">
-    	<a href="#" style="font-weight:bold;font-size:14px;color:white;">Services</a>
+    	<%= link_to "Services", services_path, :style => "font-weight:bold;font-size:14px;color:white;" %>
     </li>
     <li class="level1-li">
-    	<a href="#" style="font-weight:bold;font-size:14px;color:white;">Contact us</a>
+    	<%= link_to "Contact Us", contact_us_path, :style => "font-weight:bold;font-size:14px;color:white;" %>
     </li>
     <li class="level1-li">
     	<% if user_signed_in? %>

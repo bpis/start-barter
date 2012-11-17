@@ -1,5 +1,12 @@
 StartBarter::Application.routes.draw do
   
+  match '/about_us', :to => "static_pages#about_us"
+  match '/services', :to => "static_pages#services"
+  match '/contact_us', :to => "static_pages#contact_us"
+  match '/about_company', :to => "static_pages#about_company"
+  match '/our_vision', :to => "static_pages#our_vision"
+  match '/our_mission', :to => "static_pages#our_mission"
+
   devise_for :users,
       :controllers => { 
       :sessions           => 'devise/sessions', 
