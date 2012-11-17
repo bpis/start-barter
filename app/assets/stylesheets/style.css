@@ -61,7 +61,7 @@ header {height:171px;width:100%;overflow:hidden;background:url(/assets/bg_header
 #gallery img {display:block;width:100%;height:100%}
 #gallery li {background:url(/assets/img_bg.png) center 2px no-repeat;overflow:hidden}
 /* content */
-#content {padding-bottom:48px;width:100%;overflow:hidden}
+#content {padding-bottom:150px;width:100%;overflow:hidden}
 #content2 {padding-bottom:49px;width:100%;overflow:hidden}
 .marg_right1 {margin-right:19px}
 .pad_bot1 {padding-bottom:6px}
@@ -133,21 +133,21 @@ aside {
   }
 }
 
-.email{position: absolute; left: 275px; top: 240px;}
-.email_txt{position: absolute; left: 320px; top: 240px;}
-.username{position: absolute; left: 600px; top: 240px;}
-.username_txt{position: absolute; left: 680px; top: 240px;}
-.fname{position: absolute; left: 240px; top: 280px;}
-.fname_txt{position: absolute; left: 320px; top: 280px}
-.lname{position: absolute; left: 600px; top: 280px;}
-.lname_txt{position: absolute; left: 680px; top: 280px;}
-.country{position: absolute; left: 260px; top: 320px;}
-.country_txt{position: absolute; left: 320px; top: 320px;}
-.iam{position: absolute; left: 280px; top: 360px;}
-.iam_txt{position: absolute; left: 320px; top: 360px;}
-.lookingfor{position: absolute; left: 235px; top: 420px;}
-.lookingfor_txt{position: absolute; left: 320px; top: 420px;}
-.btn_edit{position: absolute; left: 320px; top: 480px;}
+.profile_email{position: absolute; left: 275px; top: 240px;}
+.profile_email_txt{position: absolute; left: 320px; top: 240px;}
+.profile_username{position: absolute; left: 600px; top: 240px;}
+.profile_username_txt{position: absolute; left: 680px; top: 240px;}
+.profile_fname{position: absolute; left: 240px; top: 280px;}
+.profile_fname_txt{position: absolute; left: 320px; top: 280px}
+.profile_lname{position: absolute; left: 600px; top: 280px;}
+.profile_lname_txt{position: absolute; left: 680px; top: 280px;}
+.profile_country{position: absolute; left: 260px; top: 320px;}
+.profile_country_txt{position: absolute; left: 320px; top: 320px;}
+.profile_iam{position: absolute; left: 280px; top: 360px;}
+.profile_iam_txt{position: absolute; left: 320px; top: 360px;}
+.profile_lookingfor{position: absolute; left: 235px; top: 420px;}
+.profile_lookingfor_txt{position: absolute; left: 320px; top: 420px;}
+.profile_btn_edit{position: absolute; left: 320px; top: 480px;}
 /*sidebar {
 background-color: #0FF;
 width: 80px;
@@ -155,3 +155,360 @@ position: absolute;
 top: 110px;
 min-height: 300px;
 }*/
+
+
+
+
+.email{
+	position: absolute; 
+	left: 95px; 
+	top: 300px;
+	color:#000000;
+	font-weight: bold;
+}
+.email_txt{
+	position: absolute; 
+	left: 140px; 
+	top: 295px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+
+.username {
+	position: absolute; 
+	left: 475px; 
+	top: 300px;
+	color:#000000;
+	font-weight: bold;
+	
+}
+.username_txt{
+	position: absolute; 
+	left: 545px; 
+	top: 295px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+
+.fname {
+	position: absolute; 
+	left: 65px; 
+	top: 340px;
+	color:#000000;
+	font-weight: bold;
+}
+.fname_txt {
+	position: absolute; 
+	left: 140px; 
+	top: 340px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.lname {
+	position: absolute; 
+	left: 475px; 
+	top: 345px;
+	color:#000000;
+	font-weight: bold;
+}
+.lname_txt { 
+	position: absolute; 
+	left: 545px; 
+	top: 340px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.password {
+	position: absolute; 
+	left: 72px; 
+	top: 390px;
+	color:#000000;
+	font-weight: bold;
+ }
+.password_txt {
+	position: absolute; 
+	left: 140px; 
+	top: 387px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.retype_password {
+	position: absolute; 
+	left: 435px; 
+	top: 390px;
+	color:#000000;
+	font-weight: bold;
+ }
+.retype_password_txt {
+	position: absolute; 
+	left: 545px; 
+	top: 387px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+
+
+.country {
+	position: absolute; 
+	left: 85px; 
+	top: 545px;
+	color:#000000;
+	font-weight: bold;
+}
+.country_txt {
+	position: absolute; 
+	left: 150px; 
+	top: 545px;
+}
+.hintiam {
+	position: absolute;
+	left: 65px; 
+	top: 462px;
+}
+.hintiamlookingfor {
+	position: absolute;
+	left: 413px; 
+	top: 462px;
+}
+.hint-pwd {
+	position: absolute;
+	left: 160px; 
+	top: 417px;
+}
+.iam {
+	position: absolute;
+	left: 91px; 
+	top: 445px;
+	color:#000000;
+	font-weight: bold;
+}
+.iam_txt {
+	position: absolute; 
+	left: 200px; 
+	top: 450px;
+}
+
+.iamlookingfor {
+	position: absolute; 
+	left: 448px; 
+	top: 445px;
+	color:#000000;
+	font-weight: bold;
+}
+.iamlookingfor_txt {
+	position: absolute; 
+	left: 550px; 
+	top: 450px;
+}
+
+
+
+.btn_reg {
+	position: absolute; 
+	left: 270px; 
+	top: 590px;
+}
+
+
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  margin-top: 400px;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.edit_email{
+	position: absolute; 
+	left: 95px; 
+	top: 300px;
+	color:#000000;
+	font-weight: bold;
+}
+.edit_email_txt{
+	position: absolute; 
+	left: 140px; 
+	top: 295px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+
+.edit_username {
+	position: absolute; 
+	left: 475px; 
+	top: 300px;
+	color:#000000;
+	font-weight: bold;
+	
+}
+.edit_username_txt{
+	position: absolute; 
+	left: 545px; 
+	top: 295px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+
+.edit_fname {
+	position: absolute; 
+	left: 65px; 
+	top: 340px;
+	color:#000000;
+	font-weight: bold;
+}
+.edit_fname_txt {
+	position: absolute; 
+	left: 140px; 
+	top: 340px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.edit_lname {
+	position: absolute; 
+	left: 475px; 
+	top: 345px;
+	color:#000000;
+	font-weight: bold;
+}
+.edit_lname_txt { 
+	position: absolute; 
+	left: 545px; 
+	top: 340px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.edit_password {
+	position: absolute; 
+	left: 72px; 
+	top: 390px;
+	color:#000000;
+	font-weight: bold;
+ }
+.edit_password_txt {
+	position: absolute; 
+	left: 140px; 
+	top: 387px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.edit_retype_password {
+	position: absolute; 
+	left: 435px; 
+	top: 390px;
+	color:#000000;
+	font-weight: bold;
+ }
+.edit_retype_password_txt {
+	position: absolute; 
+	left: 545px; 
+	top: 387px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+
+
+.edit_country {
+	position: absolute; 
+	left: 85px; 
+	top: 545px;
+	color:#000000;
+	font-weight: bold;
+}
+.edit_country_txt {
+	position: absolute; 
+	left: 150px; 
+	top: 545px;
+}
+.edit_hintiam {
+	position: absolute;
+	left: 65px; 
+	top: 462px;
+}
+.edit_hintiamlookingfor {
+	position: absolute;
+	left: 413px; 
+	top: 462px;
+}
+.edit_hint-pwd {
+	position: absolute;
+	left: 160px; 
+	top: 417px;
+}
+.edit_iam {
+	position: absolute;
+	left: 91px; 
+	top: 445px;
+	color:#000000;
+	font-weight: bold;
+}
+.edit_iam_txt {
+	position: absolute; 
+	left: 200px; 
+	top: 450px;
+}
+
+.edit_iamlookingfor {
+	position: absolute; 
+	left: 448px; 
+	top: 445px;
+	color:#000000;
+	font-weight: bold;
+}
+.edit_iamlookingfor_txt {
+	position: absolute; 
+	left: 550px; 
+	top: 450px;
+}
+.btn_edit {
+	position: absolute; 
+	left: 320px; 
+	top: 480px;
+}
+
+.current_password {
+	position: absolute; 
+	left: 200px; 
+	top: 450px;
+}
+.current_pwd_txt {
+	position: absolute; 
+	left: 550px; 
+	top: 450px;
+	background:url(/assets/newsletter_input.png) 0 0 no-repeat;
+	min-height:43px
+}
+.hint_current_pwd {
+	position: absolute;
+	left: 160px; 
+	top: 417px;
+}
+.btn_edit {
+	position: absolute; 
+	left: 320px; 
+	top: 480px;
+}
+
+#content_wrap {
+	position: absolute; 
+	left: 320px; 
+	top: 480px;
+}

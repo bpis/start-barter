@@ -1,52 +1,69 @@
 <article id="content">
   <section class="col1">
+    <div class="fb-reg">
+      <%= link_to(image_tag('facebook-register-button.png',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %>
+    </div>
+    <span class="or-option">Or Sign up with email</span>
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "newsletter"}) do |f| %>
   
       <%= devise_error_messages! %>
 
-      <h4>Email</h4><br />
-      <div class="bg">
+      <br />
+      <div class="email">Email</div>
+      <div class="email_txt">
         <%= f.email_field :email, :placeholder => "Type Your Email Here", :class => "input" %>
       </div> 
 
-    	<h4>First Name</h4><br />
-      <div class="bg">  
+      <div class="username">Username</div>
+      <div class="username_txt">
+        <%= f.text_field :username, :placeholder => "Type Your Username Here", :class => "input" %>
+      </div>
+
+    	<div class="fname">First Name</div>
+      <div class="fname_txt">  
         <%= f.text_field :first_name, :placeholder => "Type Your First Name Here", :class => "input" %>
       </div>
 
-    	<h4>Last Name</h4><br />
-      <div class="bg">
+    	<div class="lname">Last Name</div>
+      <div class="lname_txt">
         <%= f.text_field :last_name, :placeholder => "Type Your Last Name Here", :class => "input" %>
       </div>
 
-      <h4>Username</h4><br />
-      <div class="bg">
-        <%= f.text_field :username, :placeholder => "Type Your Username Here", :class => "input" %>
-      </div>
+
       
-      <h4>Password</h4><span class="hint">(minimum 8 characters required)</span><br />
-      <div class="bg">
+      <div class="password">Password</div>
+        <span class="hint-pwd">(minimum 8 characters required)</span><br />
+      <div class="password_txt">
         <%= f.password_field :password, :placeholder => "Type Your Password Here", :class => "input" %>
       </div>
 
-      <h4>Retype Password</h4><br />
-      <div class="bg"> 
+      <div class="retype_password">Retype Password</div>
+      <div class="retype_password_txt"> 
         <%= f.password_field :password_confirmation, :placeholder => "Retype your Password Here", :class => "input" %>
       </div>
 
-    <h4>I am a</h4><span class="hint">(select multiple skills)</span>
-      <%= f.select :iam, options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"]), {}, {:multiple => true} %><br/>
-      <h4>I am looking for </h4><span class="hint">(select multiple skills)</span>
-        <%= f.select :iamlookingfor, options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"]), {}, {:multiple => true} %><br/>
+      <div class="iam">I am a</div>
+        <span class="hintiam">(select multiple skills)</span>
+      <%#= f.select :iam, options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"]), {}, {:multiple => true} %>
 
-      <h4>Country</h4><br/>
-      <div >
+        <div class="iam_txt"><%= select_tag "iam", options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"], params[:iam]), {:multiple => true} %>
+        </div> <br/>
+
+
+      <div class="iamlookingfor">I am looking for </div>
+      <span class="hintiamlookingfor">(select multiple skills)</span>
+        <%#= f.select :iamlookingfor, options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"]), {}, {:multiple => true} %>
+       <div class="iamlookingfor_txt">
+        <%= select_tag "iamlookingfor", options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"], params[:iamlookingfor]), {:multiple => true} %>
+        </div> <br/>
+
+      <div class="country">Country</div>
+      <div class="country_txt">
         <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
       </div><br />
-		<h4> Profile Picture </h4>
-		<div><%= f.file_field :profile_picture %></div><br />
-      <div><%= f.submit "Sign up", :class=> "button" %></div>
+
+      <div class="btn_reg"><%= f.submit "Sign up", :class=> "button" %></div>
     <% end %>
 
 
@@ -70,22 +87,4 @@
       <p></p>
     </div>
   </section>
-  <!-- 
-  <section class="col2">
-        <h2 class="pad_bot1">Register now</h2>
-        <div class="wrapper">
-          <figure class="left marg_right1"></figure>
-          <p class="pad_top1 pad_bot1"><strong class="color1"> </strong></p>
-          <p class="pad_bot3">Register with us and move a step ahead to fulfill your dreams without investing money.Specify who you are or specify who you want to be and get enrolled with us today.Fill in the details as per the requirements of the registration form and make yourself ready for your bright future.</p>
-        
-        </div>
-        <h2 class="pad_bot1 pad_top1">Get enrolled</h2>
-        <div class="wrapper">
-          <figure class="left marg_right1"></figure>
-          <p class="pad_top1 pad_bot1"><strong class="color1">About Starter Barter </strong></p>
-          <p class="pad_bot3">Starter Barter is one of the best business decision to make.Starter Barter will help you to grow your business.we also help the users to find inspiring clients and give them a chance to work with such clients all over the globe.  </p>
-          <!--<a href="#" class="button right">Read More</a>
-        </div>
-   </section> -->
-    </article>
-
+</article>
