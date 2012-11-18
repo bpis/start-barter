@@ -11,13 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117105039) do
+ActiveRecord::Schema.define(:version => 20121118152738) do
 
   create_table "countries", :force => true do |t|
     t.string   "name",       :default => "", :null => false
     t.string   "code",       :default => "", :null => false
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "company_name"
+    t.string   "tagline"
+    t.string   "github_profile_link"
+    t.string   "overview",            :limit => 1000
+    t.string   "job_profile",         :limit => 8000
+    t.string   "keyword"
+    t.string   "phone_no"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  create_table "skills", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "skill_name"
+    t.boolean  "visibility"
+    t.string   "proficiency"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

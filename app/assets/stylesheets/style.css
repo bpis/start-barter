@@ -12,7 +12,7 @@ body {background:#454545;border:0;font:13px Arial,Helvetica,sans-serif;color:#81
 .body1 {background:url(/assets/bg_top.gif) top repeat-x #f2f2f2}
 .body2 {background:#e6e6e6;border-bottom:1px solid #4e4e4e}
 /* main layout */
-a {color:#000;text-decoration:underline;outline:none}
+a {color:#2398C9;text-decoration:underline;outline:none}
 a:hover {text-decoration:none}
 h1 {float:left;padding:23px 0 0 30px}
 h2 {font-size:36px;color:#000;line-height:1.2em;padding:36px 0 21px 0;letter-spacing:-1px}
@@ -131,6 +131,15 @@ aside {
       margin-bottom: 3px;
     }
   }
+}
+
+.verticalLine {
+    /*border-left:thick solid gray;*/
+    border-left: 1px solid black;
+    position: absolute;
+    left: 480px;
+    top : 230px;
+    height: 100px;
 }
 
 .profile_email{position: absolute; left: 275px; top: 240px;}

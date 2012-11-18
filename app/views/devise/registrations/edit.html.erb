@@ -2,18 +2,10 @@
 <!-- content -->
 <article id="content">
   <section class="col1">
+    <h2></h2>
     <div class="wrapper pad_bot2">
       <figure class="left marg_right1">
-          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :id => "newsletter"}) do |f| %>
-            <%= render :partial => "edit_profile", :locals => {:f => f } %>
-            <div class="btn_edit">
-              <%= f.submit "Update info", :class=> "button" %>
-            </div>
-          <% end %>
-          <div class="cancel_my_acc">Cancel my account</div>
-          <div class="unhappy">
-          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-        </div>
+        <%= render :partial => "edit_profile", :locals => {:user => current_user } %>
       </figure>
       <p class="pad_bot1 pad_top1"><span class="color1"></span></p>
       <p></p>
@@ -30,11 +22,9 @@
     </div>
   </section>
   <section class="col2">
-    <% if !user_signed_in? %>
-      <%= render :partial => 'home/content' %>
-    <% end %>
+    <%= %>
+    <%= render :partial => 'home/content' %>
   </section>
 </article>
 <!-- / content -->
-
 
