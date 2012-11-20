@@ -15,12 +15,18 @@ body {background:#454545;border:0;font:13px Arial,Helvetica,sans-serif;color:#81
 a {color:#2398C9;text-decoration:underline;outline:none}
 a:hover {text-decoration:none}
 h1 {float:left;padding:23px 0 0 30px}
-h2 {font-size:36px;color:#000;line-height:1.2em;padding:36px 0 21px 0;letter-spacing:-1px}
+h1.padding_username{padding: 0px;}
+h2 {font-size:36px;color:#000;line-height:1.2em;padding:36px 0px 21px 0;letter-spacing:-1px}
 h2.pad_bot1 {padding-bottom:11px}
 h2.pad_top1 {padding-top:10px}
+
+h2.padding_overview{padding: 0;}
+h2.padding_keyword{padding: 18px;}
+h2.padding_skill{padding-left: 17px;}
 h3 {font-size:20px;line-height:1.2em;color:#000;padding:25px 0 10px 0;letter-spacing:-1px}
 h4{color:#000000;}
 p {padding-bottom:18px}
+
 /* header */
 header {height:171px;width:100%;overflow:hidden;background:url(/assets/bg_header2.jpg) center 100px no-repeat}*/
 #top_nav {float:right;padding:5px 32px 0 0}
@@ -532,17 +538,20 @@ min-height: 300px;
 	top: 480px;
 }
 
-
-element.style {
-float: left;
-margin-top: 5px;
+#p-menu {
+padding-right: 0px;
+width: 180px;
 }
+.eol-layout-s1 {
+width: 170px;
+}
+
 a.edit-btn {
 margin-right: 6px;
 padding-right: 10px;
 height: 19px;
 float: right;
-background: transparent url('/media/images/4.0/profile/profile_edit_sprite.gif?v=11-13-2012-16-40') no-repeat scroll right top;
+/*background: transparent url('/assets/profile_edit_sprite.gif') no-repeat scroll right top;*/
 }
 a:visited {
 color: #00468C;
@@ -553,21 +562,6 @@ color: #00468C;
 text-decoration: none;
 }
 
-user agent stylesheeta:-webkit-any-link {
-color: -webkit-link;
-text-decoration: underline;
-cursor: auto;
-}
-Inherited from div.eol-center
-.eol-center {
-text-align: left;
-}
-Inherited from body#eol-m
-body {
-color: #333;
-font-family: Arial,Helvetica,sans-serif;
-font-size: 12px;
-}
 #p-menu .nav-left {
 width: 180px;
 margin-top: 20px;
@@ -584,15 +578,37 @@ ul {
 margin: 0;
 padding-left: 15px;
 }
+#p-menu .nav-left li.nav-left-selected a.nav-left-item{
+background: none;
+}
+.nav-left li.nav-left-selected a.nav-left-item  {
+background: url('assets/nav_rounded.gif') no-repeat 0 0px;
+font-weight: bold;
+color: #333;
+}
 
-user agent stylesheetul, menu, dir {
+.nav-left li a.nav-left-item {
 display: block;
-list-style-type: disc;
--webkit-margin-before: 1em;
--webkit-margin-after: 1em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
--webkit-padding-start: 40px;
+color: #333;
+text-decoration: none;
+outline: none;
+padding-left: 4px;
+width: 176px;
+}
+#p-menu .nav-left li.nav-left-selected a.nav-left-item span {
+border: none;
+}
+.nav-left li.nav-left-selected a.nav-left-item span.span-item {
+border-top: solid 1px #D6D6D6;
+border-bottom: solid 1px #D6D6D6;
+width: 161px;
+display: block;
+}
+.nav-left li a.nav-left-item span.span-item {
+padding: 7px 6px;
+cursor: pointer;
+height: 15px;
+display: block;
 }
 .clear{
 	clear: both;
@@ -654,14 +670,14 @@ bottom: 15px;
 }
 #p-bd {
 padding: 15px 0px 0px 15px;
-min-height: 650px;
+min-height: 75px;
 width: 745px;
 }
 .p-header {
 font-family: Georgia, Times New Roman;
 color: #50852C;
 font-weight: normal;
-margin-bottom: 15px;
+margin-bottom: -19px;
 line-height: 24px;
 }
 h2 {
@@ -671,7 +687,7 @@ font-size: 24px;
 line-height: 130%;
 overflow: hidden;
 }
-
+.p-about-txt-jobProfile{padding-left: 17px;}
 .p-spacer {
 padding-bottom: 30px;
 content: ".";
@@ -694,7 +710,7 @@ border-bottom: solid 1px #E5E5E5;
 table.profileTable th {
 text-align: left;
 background-color: white;
-background-image: url(/media/images/4.0/tableHeaderGradient.png);
+background-image: url(/assets/tableHeaderGradient.png);
 background-position: bottom;
 background-repeat: repeat-x;
 padding: 8px 5px;
@@ -737,7 +753,7 @@ line-height: 0;
 visibility: hidden;
 }
 #p-keywords {
-margin-top: 80px;
+margin-top: 5px;
 color: #939393;
 }
 .keywordRow {
@@ -770,10 +786,5 @@ color: #333;
 font-size: 13px;
 line-height: 20px;
 }
-.fb_icon_20 {
-float: left;
-width: 20px;
-height: 20px;
-margin-left: 5px;
-background: url('/images/FB-icon-20x20.png') no-repeat left top transparent;
-}
+
+

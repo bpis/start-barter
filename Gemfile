@@ -10,7 +10,9 @@ gem 'carrierwave'
 gem "rmagick"  
 gem "devise", ">= 2.1.2"
 gem "omniauth-facebook", "1.4.0"
-
+gem 'omniauth-linkedin'
+gem 'omniauth-openid'
+gem 'omniauth-twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.

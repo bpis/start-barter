@@ -6,29 +6,30 @@
 	<a class="edit-btn" href="/edit" title="Edit Profile Picture" style="float: left; margin-top: 3px;">
 		<span>Edit</span>
 	</a>
+	<div class="clear"></div>
 </div>
-<div class="clear"></div>
 <div>
 	<ul class="nav-left">
-		<li id="nav-left-li-" class="nav-left-selected"><a class="nav-left-item" href="#"><span class="span-item">Overview  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/s/edit/devendrabpsi/job-history/?t=1"><span class="span-item">Job History  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/s/edit/devendrabpsi/portfolio/"><span class="span-item">Portfolio  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/s/edit/devendrabpsi/editSkills/"><span class="span-item">Skills  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/s/edit/devendrabpsi/resume/"><span class="span-item">Resume/C.V.  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/s/edit/devendrabpsi/contact/"><span class="span-item">Contact Info  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/e/edit/devendrabpsi/privacy/"><span class="span-item">Privacy Settings  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="https://www.elance.com/s/devendrabpsi/"><span class="span-item">Public View of Profile  </span></a></li>
+		<li id="nav-left-li-" class="nav-left-selected"><a class="nav-left-item" href="/"><span class="span-item">Overview  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Job History  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Portfolio  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Skills  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Resume/C.V.  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Contact Info  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Privacy Settings  </span></a></li>
+		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Public View of Profile  </span></a></li>
 	</ul>
 </div>
 <div class="clear"></div>
 </div>
 
-
 <div class="eol-layout-s4" id="p-content">
 	<div class="eol-layout-s4" id="p-hd">
 		<div class="p-layout-s3">
+			<a class="edit-btn" href="/edit" title="Edit Basic Information" style="position: relative; z-index: 1;margin-top:12px;">
+				<span>Edit</span></a>
 			<div class="p-title-div">
-				<h1 id="p-title" class="fn left"><%= user.first_name %> <%= user.last_name %></h1>
+				<h1 id="p-title" class="fn left padding_username"><%= user.first_name %> <%= user.last_name %></h1>
 				<div class="clear"></div>
 				<br />
 				<span class="p-summary-tagline title"><%= user.profile.tagline %></span>
@@ -46,7 +47,8 @@
 	<div class="eol-layout-s4" id="p-bd">
 		<div class="p-layout-x3" id="p-overview">
 			<div>
-				<h2 class="p-header"> Overview </h2><div class="clear"></div>
+				<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>				
+				<h2 class="p-header padding_overview"> Overview </h2><div class="clear"></div>
 			</div>
 			<p class="p-about-txt" style="margin: 10px 0px;">
 				<%= user.profile.overview %>
@@ -56,18 +58,19 @@
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
 	<!-- Skills -->
-		<h2 class="p-header"> Skills </h2>
+	<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
+		<h2 class="p-header padding_skill"> Skills </h2>
 		<div class="clear"></div>
 		<table class="profileTable">
 			<thead>
 				<tr>
-					<th id="firstcol" style="width: 220px; padding-left: 10px;">Skill</th>
+					<th id="firstcol" style="width: 220px; padding-left: 17px;">Skill</th>
 					<th id="lastcol" colspan="2">Score</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 10px;"> <%= user.skills[0].skill_name %> </td>
+					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].skill_name %> </td>
 					<td class="provideeProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
 						<div style="position: relative; text-align: left; padding-top: 3px;">
 							<div class="testedChart"><%= user.skills[0].proficiency %></div>
@@ -79,18 +82,19 @@
 		<div class="clear"></div>
 		<div class="p-spacer-large"></div>
 		<!-- Resume -->
-		<h2 class="p-header"> Job Profile </h2>
+		<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
+		<h2 class="p-header padding_keyword"> Job Profile </h2>
 		
-		<div class="p-about-txt"><%= user.profile.job_profile %><br><br><%= link_to "Read More >>", "#" %></div>
+		<div class="p-about-txt-jobProfile"><%= user.profile.job_profile %><br><br><%= link_to "Read More >>", "#" %></div>
 		<div class="p-spacer-large"></div>
 		<!-- KeyWords -->
 		<div id="p-keywords">
 			<a class="edit-btn" href="#" title="Edit Keywords">
 				<span>Edit</span>
 			</a>
-			<h2 class="p-header">Keywords</h2>
+			<h2 class="p-header padding_keyword">Keywords</h2>
 			<div class="keywordRow">
-				<div class="keywordRow keywordCell"><%= user.profile.keyword %></div>
+				<div class="keywordRow keywordCell p-about-txt-jobProfile"><%= user.profile.keyword %></div>
 			</div>
 		</div>
 </div>
