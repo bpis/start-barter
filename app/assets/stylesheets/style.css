@@ -610,6 +610,17 @@ cursor: pointer;
 height: 15px;
 display: block;
 }
+#p-menu .nav-left-divider {
+border-top: dotted 1px #D7D7D7;
+color: #D7D7D7;
+}
+.nav-left-divider {
+color: #D6D6D6;
+border-top: solid 1px #D6D6D6;
+margin: 10px 0px 0px;
+height: 10px;
+padding: 0px;
+}
 .clear{
 	clear: both;
 }
