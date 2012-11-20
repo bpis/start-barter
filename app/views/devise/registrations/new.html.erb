@@ -1,90 +1,90 @@
 <article id="content">
-  <section class="col1">
-    <div class="fb-reg">
-      <%= link_to(image_tag('facebook-register-button.png',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %>
-    </div>
-    <span class="or-option">Or Sign up with email</span>
+	<section>
+		<div class="wrapper reg_bottom">
+			<div class="fb-reg">
+				<%= link_to(image_tag('facebook-register-button.png',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %>
+			</div>
+			<span class="or-option">Or Sign up with email</span>
+			<div class="reg_form">
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "newsletter"}) do |f| %>
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "newsletter"}) do |f| %>
-  
-      <%= devise_error_messages! %>
+				<%= devise_error_messages! %>
+				<br />
+				<div class="email">
+					Email
+				</div>
+				<div class="email_txt">
+					<%= f.email_field :email, :placeholder => "Type Your Email Here", :class => "input" %>
+				</div>
+				<div class="username">
+					Username
+				</div>
+				<div class="username_txt">
+					<%= f.text_field :username, :placeholder => "Type Your Username Here", :class => "input" %>
+				</div>
+				<div class="fname">
+					First Name
+				</div>
+				<div class="fname_txt">
+					<%= f.text_field :first_name, :placeholder => "Type Your First Name Here", :class => "input" %>
+				</div>
+				<div class="lname">
+					Last Name
+				</div>
+				<div class="lname_txt">
+					<%= f.text_field :last_name, :placeholder => "Type Your Last Name Here", :class => "input" %>
+				</div>
+				<div class="password">
+					Password
+				</div>
+				<span class="hint-pwd">(minimum 8 characters required)</span>
+				<br />
+				<div class="password_txt">
+					<%= f.password_field :password, :placeholder => "Type Your Password Here", :class => "input" %>
+				</div>
+				<div class="retype_password">
+					Retype Password
+				</div>
+				<div class="retype_password_txt">
+					<%= f.password_field :password_confirmation, :placeholder => "Retype your Password Here", :class => "input" %>
+				</div>
+				<div class="iam">
+					I am a
+				</div>
+				<span class="hintiam">(select multiple skills)</span>
+				<%#= f.select :iam, options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"]), {}, {:multiple => true} %>
+				<div class="iam_txt">
+					<%= select_tag "iam", options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"], params[:iam]), {:multiple => true} %>
+				</div>
+				<br/>
+				<div class="iamlookingfor">
+					I am looking for
+				</div>
+				<span class="hintiamlookingfor">(select multiple skills)</span>
+				<%#= f.select :iamlookingfor, options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"]), {}, {:multiple => true} %>
+				<div class="iamlookingfor_txt">
+					<%= select_tag "iamlookingfor", options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"], params[:iamlookingfor]), {:multiple => true} %>
+				</div>
+				<br/>
+				<div class="country">
+					Country
+				</div>
+				<div class="country_txt">
+					<%= f.collection_select(:country_id, Country.all, :id, :name ) %>
+				</div>
+				<br />
+				<div class="btn_reg">
+					<%= f.submit "Sign up", :class=> "button" %>
+				</div>
+				<% end %>
 
-      <br />
-      <div class="email">Email</div>
-      <div class="email_txt">
-        <%= f.email_field :email, :placeholder => "Type Your Email Here", :class => "input" %>
-      </div> 
-
-      <div class="username">Username</div>
-      <div class="username_txt">
-        <%= f.text_field :username, :placeholder => "Type Your Username Here", :class => "input" %>
-      </div>
-
-    	<div class="fname">First Name</div>
-      <div class="fname_txt">  
-        <%= f.text_field :first_name, :placeholder => "Type Your First Name Here", :class => "input" %>
-      </div>
-
-    	<div class="lname">Last Name</div>
-      <div class="lname_txt">
-        <%= f.text_field :last_name, :placeholder => "Type Your Last Name Here", :class => "input" %>
-      </div>
-
-
-      
-      <div class="password">Password</div>
-        <span class="hint-pwd">(minimum 8 characters required)</span><br />
-      <div class="password_txt">
-        <%= f.password_field :password, :placeholder => "Type Your Password Here", :class => "input" %>
-      </div>
-
-      <div class="retype_password">Retype Password</div>
-      <div class="retype_password_txt"> 
-        <%= f.password_field :password_confirmation, :placeholder => "Retype your Password Here", :class => "input" %>
-      </div>
-
-      <div class="iam">I am a</div>
-        <span class="hintiam">(select multiple skills)</span>
-      <%#= f.select :iam, options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"]), {}, {:multiple => true} %>
-
-        <div class="iam_txt"><%= select_tag "iam", options_for_select(["Admin Support", "Designer", "Developer", "Content Writer", "Marketer", "Multimedia Expert", "Web developer", "Legal Expert", "Translator", "Sales Professional", "Finance Professional", "Consultant", "Engineer", "Manufacturing Professional"], params[:iam]), {:multiple => true} %>
-        </div> <br/>
-
-
-      <div class="iamlookingfor">I am looking for </div>
-      <span class="hintiamlookingfor">(select multiple skills)</span>
-        <%#= f.select :iamlookingfor, options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"]), {}, {:multiple => true} %>
-       <div class="iamlookingfor_txt">
-        <%= select_tag "iamlookingfor", options_for_select(["Admin Support", "Designer", "Developer", "Programmers", "Content Writer", "Marketer", "Multimedia Experts", "Web developers", "Legal Experts", "Translators", "Sales Professionals", "Finance Professionals", "Consultants", "Engineers", "Manufacturing Professionals"], params[:iamlookingfor]), {:multiple => true} %>
-        </div> <br/>
-
-      <div class="country">Country</div>
-      <div class="country_txt">
-        <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
-      </div><br />
-
-      <div class="btn_reg"><%= f.submit "Sign up", :class=> "button" %></div>
-    <% end %>
-
-
-    <%#= render "devise/shared/links" %>
-    <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-      <div><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %></div>
-    <% end -%>
-    <div class="wrapper pad_bot2">
-      <figure class="left marg_right1"><a href="#">
-                <p class="pad_bot1 pad_top1"><span class="color1"></span></p>
-      <p></p>
-    </div>
-    <div class="wrapper pad_bot2">
-      <figure class="left marg_right1"><a href="#"></a></figure>
-      <p class="pad_bot1 pad_top1"><span class="color1"></span></p>
-      <p> </p>
-    </div>
-    <div class="wrapper">
-      <figure class="left marg_right1"><a href="#"></a></figure>
-      <p class="pad_bot1 pad_top1"><span class="color1"></span></p>
-      <p></p>
-    </div>
-  </section>
+				<%#= render "devise/shared/links" %>
+				<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+				<div>
+					<%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</section>
 </article>

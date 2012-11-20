@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-  	<title>StartBarter | Home</title>
-  	<%= stylesheet_link_tag    "application", :media => "all" %>
-  	<%= javascript_include_tag "application" %>
-  	<%= csrf_meta_tags %>
-  	<!--[if lt IE 9]>
-			<script type="text/javascript" src="js/html5.js"></script>
-			<style type="text/css">
-				.bg {behavior:url(js/PIE.htc)}
-			</style>
+		<title>StartBarter | Home</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %> <!--[if lt IE 9]>
+		<script type="text/javascript" src="js/html5.js"></script>
+		<style type="text/css">
+		.bg {behavior:url(js/PIE.htc)}
+		</style>
 		<![endif]-->
 		<!--[if lt IE 7]>
-			<div style=' clear: both; text-align:center; position: relative;'>
-				<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
-			</div>
+		<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+		</div>
 		<![endif]-->
 	</head>
 	<body id="page1">
@@ -25,37 +24,40 @@
 					<%= render 'layouts/content_header' %>
 				</header>
 				<div class="ic"></div>
-					<%= render 'layouts/messages' %>
-					<%= yield %>
+				<%= render 'layouts/messages' %>
+				<%= yield %>
 			</div>
 		</div>
 		<div class="body2">
 			<div class="main">
-					<%= render 'layouts/footer_content' %>
+				<%= render 'layouts/footer_content' %>
 			</div>
 		</div>
 		<div class="main">
 			<!-- footer -->
 			<footer>
-				Copyrights:All Rights Reserved @ Starter Barter 
-				<!-- {%FOOTER_LINK} -->
+				Copyrights:All Rights Reserved @ Starter Barter <!-- {%FOOTER_LINK} -->
 			</footer>
 			<!-- / footer -->
 		</div>
-		<script type="text/javascript"> Cufon.now();</script>
+		<script type="text/javascript">
+			Cufon.now();
+
+		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#myRoundabout').roundabout({
-					 shape: 'square',
-		        	 minScale: 0.89, // tiny!
-		        	 maxScale: 1, // tiny!
-					 easing:'easeOutExpo',
-					 clickToFocus:'true',
-					 focusBearing:'0',
-					 duration:800,
-					 reflect:true
+					shape : 'square',
+					minScale : 0.89, // tiny!
+					maxScale : 1, // tiny!
+					easing : 'easeOutExpo',
+					clickToFocus : 'true',
+					focusBearing : '0',
+					duration : 800,
+					reflect : true
 				});
 			});
+
 		</script>
 	</body>
 </html>

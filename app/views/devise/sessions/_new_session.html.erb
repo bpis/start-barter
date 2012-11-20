@@ -1,28 +1,33 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'newsletter'}) do |f| %>
-  
-<h3>Email or Username</h3>
-
-	<div class="bg">
-		<%= f.text_field :login, :placeholder => "Type your email or username here", :class => 'input' %>
+<!-- h3 style="position: absolute; left: 15px; top: 140px;"> Login to StarterBarter </h3> -->
+<div class="login-social-wrap">
+	<h4 class="left conf">Sign In</h4>
+	<div class="social-signin">
+		<span class="left">Sign In:</span>
+		<a href="#" class="fb_icon_20" id="facebook-login-button"" title="Sign in using Facebook account"></a>
 	</div>
-
+</div>
+<h3>Email or Username</h3>
+<div class="bg">
+	<%= f.text_field :login, :placeholder => "Type your email or username here", :class => 'input' %>
+</div>
 <div style="margin-top:-30px;">
-  <h3>Password</h3>
+	<h3>Password</h3>
+	<div class="bg">
+		<%= f.password_field :password, :placeholder => "Enter your password here", :class => 'input' %>
+	</div>
+	<% if devise_mapping.rememberable? -%>
+	<div>
+		<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+	</div>
+	<% end -%>
 
-  	<div class="bg">
-		  <%= f.password_field :password, :placeholder => "Enter your password here", :class => 'input' %>
-		</div>
-
-  
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <%= f.submit "Sign in", :class => "button" %>
+	<%= f.submit "Sign in", :class => "button" %>
 </div>
 <% end %>
 <div style="margin-left:150px;margin-top:-30px;">
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
-<% end -%>
+	<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+	<%= link_to "Forgot password?", new_password_path(resource_name) %>
+	<br />
+	<% end -%>
 </div>

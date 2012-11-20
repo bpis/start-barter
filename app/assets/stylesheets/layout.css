@@ -1,6 +1,6 @@
-.col1, .col2, .col3, .cols {float:left}
+.col1, .col3, .cols {float:left}
 .col1 {padding-left:50px;width:279px}
-.col2 {padding-left:50px;width:553px}
+.col2 {float:right;width:615px; margin: -38px 0px 0px 0px;}
 .col_1 {width:161px;padding-left:50px;float:left}
 .col_2 {width:131px;padding-left:50px;float:left}
 .cols {width:256px}
