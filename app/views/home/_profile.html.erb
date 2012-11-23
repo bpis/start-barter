@@ -38,7 +38,7 @@
 		</div>	
 	<div class="clear"></div>
 	<div class="p-summary-location adr">
-        <div class="left"><span class="country-name"></span> | </div>
+        <div class="left"><span class="country-name"><%=  user.country.present?  ? user.country.name : "" %><%= user.hometown if user.hometown.present? %></span> | </div>
             <div class="left"> <span class="locality"><%= user.profile.city if user.profile.city.present? %><%= user.location if user.location.present? %></span> , <span class="region"><%= user.profile.state if user.profile.state.present? %></span> </div>
          <div class="clear"></div>  
 	</div>
