@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture
   
   after_create :create_user_profile
-  #after_create :create_user_skills
+  after_create :create_user_skills
   
   # accepts_nested_attributes_for :profile
   # accepts_nested_attributes_for :skills
@@ -154,7 +154,7 @@ private
    #self.build_profile
   end 
   
-  # def create_user_skills
-    # @skill = self.create_skill
-  # end
+  def create_user_skills
+    @skill = self.skills.build
+  end
 end
