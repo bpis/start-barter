@@ -137,15 +137,6 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
-  # def self.recommend_user(params, user)
-    # @users.each do |user|
-      # if user.iamlookingfor == user.iam
-        # user.username
-      # end
-    # end
-  # end
-
 
 private
   
