@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20121118152738) do
 
   create_table "skills", :force => true do |t|
     t.integer  "user_id"
-    t.string   "skill_name"
+    t.string   "name"
     t.boolean  "visibility"
     t.string   "proficiency"
     t.datetime "created_at",  :null => false

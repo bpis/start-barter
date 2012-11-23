@@ -69,9 +69,10 @@
 					<th id="lastcol" colspan="2">Score</th>
 				</tr>
 			</thead>
+		
 			<tbody>
 				<tr>
-					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].skill_name %> </td>
+					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].name %> </td>
 					<td class="provideeProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
 						<div style="position: relative; text-align: left; padding-top: 3px;">
 							<div class="testedChart"><%= user.skills[0].proficiency %></div>
@@ -79,6 +80,7 @@
 					</td>
 				</tr>
 			</tbody>
+		
 		</table>
 		<div class="clear"></div>
 		<div class="p-spacer-large"></div>

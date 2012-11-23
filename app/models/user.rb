@@ -9,9 +9,16 @@ class User < ActiveRecord::Base
   attr_accessor :login
   attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture
   
+  after_create :create_user_profile
+  #after_create :create_user_skills
+  
+  # accepts_nested_attributes_for :profile
+  # accepts_nested_attributes_for :skills
+  
   has_one :profile
   has_many :skills
   belongs_to :country
+  
   mount_uploader :profile_picture, ProfilePictureUploader
   #has_one :country
   # attr_accessible :title, :body
@@ -47,7 +54,15 @@ class User < ActiveRecord::Base
    # login = conditions.delete(:login)
    # where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
   #end
-
+  # def linkedin
+    # omniauth_hash = env["omniauth.auth"]
+    # current_user.create_linkedin_connection(
+      # :token  => omniauth_hash["extra"]["access_token"].token,
+      # :secret => omniauth_hash["extra"]["access_token"].secret,
+      # :uid    => omniauth_hash["uid"]
+    # )
+    # redirect_to root_path, :notice => "You've successfully connected your LinkedIn account."
+  # end
 
 
 #for facebook integration with omniauth
@@ -79,7 +94,42 @@ class User < ActiveRecord::Base
     user
   end
 
-  
+  def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    # unless user
+      # user = User.new(:token  => omniauth_hash["extra"]["access_token"].token,
+                      # :secret => omniauth_hash["extra"]["access_token"].secret,
+                      # :uid    => omniauth_hash["uid"])
+      # redirect_to root_path, :notice => "You've successfully connected your LinkedIn account."
+      # user.skip_confirmation!
+      # user.save!
+    # end
+    # user
+    #debugger
+    unless user                      
+        user = User.new(username:auth.info.name.present? ? auth.info.name : "",
+                      first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",
+                      last_name:auth.extra.raw_info.lastName.present? ? auth.extra.raw_info.lastName : "",
+                      provider:auth.provider.present? ? auth.provider :  "",
+                      uid: auth.uid.present? ? auth.uid : "",
+                      email: auth.extra.raw_info.emailAddress.present? ? auth.extra.raw_info.emailAddress : "",
+                      password:Devise.friendly_token[0,20],
+                      company_name:auth.extra.raw_info.industry.present? ? auth.extra.raw_info.industry : "",
+                      hometown:auth.extra.raw_info.location.name.present? ? auth.extra.raw_info.location.name : "",
+                      about_me:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
+                      location:auth.extra.raw_info.location.name.present? ? auth.extra.raw_info.location.name : "",                      
+                      organisation:auth.extra.raw_info.industry.present? ? auth.extra.raw_info.industry : "",   
+                      designation:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
+                         facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
+                      
+                      )        
+      user.skip_confirmation!
+      user.save!
+    end
+    user
+    
+    
+  end
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -96,4 +146,15 @@ class User < ActiveRecord::Base
     # end
   # end
 
+
+private
+  
+  def create_user_profile
+   @profile = self.create_profile
+   #self.build_profile
+  end 
+  
+  # def create_user_skills
+    # @skill = self.create_skill
+  # end
 end

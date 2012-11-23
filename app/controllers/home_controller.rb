@@ -4,6 +4,8 @@ class HomeController < ApplicationController
   def index
     #@user = current_user
     @users = User.all
+    @skills = Skill.all
+    user = current_user
   end
   
   # def recommend_user
