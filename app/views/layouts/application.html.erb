@@ -17,7 +17,7 @@
 		<![endif]-->
 		<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 	</head>
-	<body id="page1">
+	<body id="page1" onload="loadCity();">
 		<div class="body1">
 			<div class="main">
 				<!-- header -->
@@ -62,11 +62,11 @@
 		</script>
 		
 		<script type="text/javascript">
- 		 	$(document).ready(function() {
+ 		 	function loadCity() {
       			var city = geoplugin_city();
       			$('input#city').val(city);
 				$('#city').html(city);
-			});
+			};
 		</script>
  
 	</body>
