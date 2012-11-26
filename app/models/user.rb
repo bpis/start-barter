@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessor :password, :password_confirmation, :current_password
+  #attr_accessor :password, :password_confirmation, :current_password
   attr_accessor :login
-  attr_accessible :login, :email, :password, :password_confirmation, :current_password, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture
+  attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture
   attr_accessible :current_password
   after_create :create_user_profile
   after_create :create_user_skills
@@ -43,10 +43,10 @@ class User < ActiveRecord::Base
     end 
       update_attributes(params) 
   end
-  def update_without_password(params={})
-    params.delete(:password)
-    super(params)
-  end
+  # def update_without_password(params={})
+    # params.delete(:password)
+    # super(params)
+  # end
   
   # Overrides the devise method find_for_authentication
   # Allow users to Sign In using their username or email address 
@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    #debugger
+    debugger
     unless user                      
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
                       first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",

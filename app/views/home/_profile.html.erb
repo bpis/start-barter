@@ -34,13 +34,13 @@
 				<h1 id="p-title" class="fn left padding_username"><%= user.first_name %> <%= user.last_name %></h1>
 				<div class="clear"></div>
 				<br />
-				<span class="p-summary-tagline title"><%= user.profile.tagline if user.profile.tagline.present? %> <%= user.about_me if user.about_me.present? %></span>
+				<span class="p-summary-tagline title"><%= user.profile.tagline if user.profile %> <%= user.about_me if user.about_me.present? %></span>
 			</div>
 		</div>	
 	<div class="clear"></div>
 	<div class="p-summary-location adr">
         <div class="left"><span class="country-name"><%=  user.country.present?  ? user.country.name : "" %><%= user.hometown if user.hometown.present? %></span> | </div>
-            <div class="left"> <span class="locality"><%= user.profile.city if user.profile.city.present? %><%= user.location if user.location.present? %></span> , <span class="region"><%= user.profile.state if user.profile.state.present? %></span> </div>
+            <div class="left"> <span class="locality"><%= user.profile.city if user.profile %><%= user.location if user.location.present? %></span> , <span class="region"><%= user.profile.state if user.profile %></span> </div>
          <div class="clear"></div>  
 	</div>
 	<div class="clear"></div>
@@ -53,7 +53,7 @@
 				<h2 class="p-header padding_overview"> Overview </h2><div class="clear"></div>
 			</div>
 			<p class="p-about-txt" style="margin: 10px 0px;">
-				<%= user.profile.overview if user.profile.overview.present? %>
+				<%= user.profile.overview if user.profile %>
 			</p>
 		</div>
 	</div>
@@ -73,10 +73,10 @@
 		
 			<tbody>
 				<tr>
-					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].name %> </td>
+					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].name if user.skills.present? %> </td>
 					<td class="provideeProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
 						<div style="position: relative; text-align: left; padding-top: 3px;">
-							<div class="testedChart"><%= user.skills[0].proficiency %></div>
+							<div class="testedChart"><%= user.skills[0].proficiency if user.skills.present? %></div>
 						</div>
 					</td>
 				</tr>
@@ -89,7 +89,7 @@
 		<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
 		<h2 class="p-header padding_keyword"> Job Profile </h2>
 		
-		<div class="p-about-txt-jobProfile"><%= user.profile.job_profile if user.profile.job_profile.present? %><br><br><%= link_to "Read More >>", "#" %></div>
+		<div class="p-about-txt-jobProfile"><%= user.profile.job_profile if user.profile %><br><br><%= link_to "Read More >>", "#" %></div>
 		<div class="p-spacer-large"></div>
 		<!-- KeyWords -->
 		<div id="p-keywords">
@@ -98,7 +98,7 @@
 			</a>
 			<h2 class="p-header padding_keyword">Keywords</h2>
 			<div class="keywordRow">
-				<div class="keywordRow keywordCell p-about-txt-jobProfile"><%= user.profile.keyword if user.profile.keyword.present? %></div>
+				<div class="keywordRow keywordCell p-about-txt-jobProfile"><%= user.profile.keyword if user.profile %></div>
 			</div>
 		</div>
 </div>

@@ -4,7 +4,8 @@ mark, rp, rt, ruby, summary, time {display:inline}
 /* Left & Right alignment */
 .left {float:left}
 .right {float:right}
-.wrapper {width:100%;overflow:hidden}
+.wrapper {width:100%;overflow:hidden;}
+.wrapper2 {width:100px; }
 /* Global properties */
 body {background:#454545;border:0;font:13px Arial,Helvetica,sans-serif;color:#818181;line-height:18px}
 .ic, .ic a {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0}
@@ -796,6 +797,26 @@ padding: 5px 10px;
 color: #333;
 font-size: 13px;
 line-height: 20px;
+}
+#search {
+    margin-left: 120px;
+    margin-top: -43px;
+    position: absolute;
+    color: black;
+}
+
+.search_city{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    width: 150px;
+}
+
+#city{
+    background: url("/assets/newsletter_input.png") no-repeat scroll 0 0 transparent;
+    padding: 3px;
+    text-align: center;
 }
 
 
