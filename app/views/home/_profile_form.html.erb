@@ -2,33 +2,43 @@
 	<section>
 		<div class="wrapper reg_bottom">
 			<div class="reg_form">
-				
+				<%= f.label :company_name %>
 				<%= f.text_field :company_name %><br /><br />
+				<%= f.label :tagline %>
 				<%= f.text_field :tagline %><br />
 				<br />
 				<div class="textarea">
+					<%= f.label :address_line_1 %>
 					<%= f.text_area :address_line_1 %><br />
 					<br />
+					<%= f.label :address_line_2 %>
 					<%= f.text_area :address_line_2 %><br />
 					<br />
+					<%= f.label :overview %>
 					<%= f.text_area :overview %><br />
 					<br />
+					<%= f.label :job_profile %>
 					<%= f.text_area :job_profile %>
 					<br />
 				</div>
 				<br />
+				<%= f.label :github_profile_link %>
 				<%= f.text_field :github_profile_link %><br />
 				<br />
+				<%= f.label :keyword %>
 				<%= f.text_field :keyword %><br />
 				<br />
+				<%= f.label :phone_no %>
 				<%= f.text_field :phone_no %><br />
 				<br />
+				<%= f.label :city %>
 				<%= f.text_field :city %><br />
 				<br />
+				<%= f.label :state %>
 				<%= f.text_field :state %><br />
 				<br />
-				<%= f.text_field :zip %><br />
-				<br />
+				<%= f.label :zip %>
+				<%= f.text_field :zip %>
 			</div>
 		</div>
 	</section>
