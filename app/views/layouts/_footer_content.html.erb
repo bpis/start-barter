@@ -1,6 +1,6 @@
 <article id="content2">
 	<section class="col1">
-		<h3>Enter your Email</h3>
+	<h3>Enter your Email</h3>
 		<form id="newsletter">
 			<div>
 				<div class="bg">
@@ -9,93 +9,89 @@
 				<a href="/contact_us" class="button" onClick="document.getElementById('ContactForm').submit()">Subscribe</a>
 			</div>
 		</form>
-	</section>
+  </section>
 	<section class="col_1">
 		<h3>About us?</h3>
 		<ul class="list1">
-			<li>
-				<%= link_to "The Company", about_company_path %>
-			</li>
-			<li>
-				<%= link_to "Our Vision", our_vision_path %>
-			</li>
-			<li>
-				<%= link_to "Our Mission", our_mission_path %>
-			</li>
+			<li><%= link_to "The Company", about_company_path %></li>
+			<li><%= link_to "Our Vision", our_vision_path %></li>
+			<li><%= link_to "Our Mission", our_mission_path %></li>
 		</ul>
-	</section>
+  </section>
 	<section class="col_2">
 		<h3>Follow Us</h3>
 		<ul id="icons">
-			<li>
-				<a href="#"> <%= link_to(image_tag('icon1.jpg',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %>
-			</li>
+
+			<li><a href="#">
+			
+			<%= link_to(image_tag('icon1.jpg',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %></li>
 			<%= link_to(image_tag('linkedin-icon-20x20.png',:alt => "Linkedin", id: "sign_in"), user_omniauth_authorize_path(:linkedin)) %></li>
 			<%= link_to(image_tag('twitter-icon-20x20.png',:alt => "Twitter", id: "sign_in"), user_omniauth_authorize_path(:twitter)) %></li>
 		</ul>
-	</section>
+  </section>
 	<section class="col_1">
 		<h3>Address</h3>
 		<p class="address">
-			<span> Country:
-				<br>
-				City:
-				<br>
+			<span>
+				Country:<br>
+				City:<br>
 			</span>
-			USA
-			<br>
-			New Jersey
-			<br>
+				USA<br>
+				New Jersey<br>
 			<a href="mailto:"> </a>
 		</p>
-	</section>
+  </section>
 </article>
-<div id="fb-root"></div>
-<script>
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId : '439259282790011',
-			status : true,
-			channelURL : 'http://localhost:3000/channel.html',
-			cookie : true,
-			oauth : true,
-			xfbml : true
-		});
-	};
+  <div id="fb-root"></div>
 
-	$('#sign_in').click(function(e) {
-		e.preventDefault();
-		FB.login(function(response) {
-			if(response.authResponse) {
-				console.log('Welcome!  Fetching your information.... ');
-				window.location = '/auth/facebook/callback';
-				FB.api('/me', function(response) {
-					console.log('Good to see you, ' + response.name + response.email + '.');
-				});
-			} else {
-				console.log('User cancelled login or did not fully authorize.');
-			}
-		}, {
-			scope : 'email, user_about_me, user_birthday, user_hometown, user_location, user_relationships, user_status, user_work_history, user_education_history, user_likes, read_stream, offline_access'
-		});
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+	appId      : '439259282790011',
+	status     : true,
+	channelURL : 'http://localhost:3000/channel.html',
+	cookie     : true,
+	oauth      : true,
+	xfbml      : true
+      });
+    };
+  
+    $('#sign_in').click(function(e) {
+      e.preventDefault();
+      FB.login(function(response) {
+	if (response.authResponse) {
+	  console.log('Welcome!  Fetching your information.... ');
+	  window.location = '/auth/facebook/callback';
+	  FB.api('/me', function(response) {
+	    console.log('Good to see you, ' + response.name + response.email +'.');
+	  });
+	} else {
+	    console.log('User cancelled login or did not fully authorize.');
+	}
+      }, {scope: 'email, user_about_me, user_birthday, user_hometown, user_location, user_relationships, user_status, user_work_history, user_education_history, user_likes, read_stream, offline_access'});
+    });
+    
+    $('#sign_out').click(function(){
+      FB.api('/me', function(response) {
+	console.log('Good bye, ' + response.name + '.');
+	FB.logout(function(response) {
+	  console.log('Logged out.');
 	});
-
-	$('#sign_out').click(function() {
-		FB.api('/me', function(response) {
-			console.log('Good bye, ' + response.name + '.');
-			FB.logout(function(response) {
-				console.log('Logged out.');
-			});
-		});
-	}); ( function() {
-		var e = document.createElement('script');
-		e.async = true;
-		e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-		document.getElementById('fb-root').appendChild(e);
-	}());
-
-</script>
-<script type="text/javascript" src="http://platform.linkedin.com/in.js">
-	api_key:mglget4u84cz
-	authorize:true
-</script>
+      });
+    });
+  
+    (function() {
+      var e = document.createElement('script'); e.async = true;
+      e.src = document.location.protocol 
+      + '//connect.facebook.net/en_US/all.js';
+      document.getElementById('fb-root').appendChild(e);
+    }());
+  </script>
+  
+  <script type="text/javascript" src="http://platform.linkedin.com/in.js?async=true">
+   	api_key: mglget4u84cz
+   	onLoad: "onLinkedInAuth"
+   	authorize: true
+  </script>
+  
+  

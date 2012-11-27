@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    debugger
+    #debugger
     unless user                      
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
                       first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",
@@ -115,6 +115,7 @@ class User < ActiveRecord::Base
                         facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
                         profile_picture:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",  
                         facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : ""
+                        
                       )        
       user.skip_confirmation!
       user.save!

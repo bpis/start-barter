@@ -1,7 +1,7 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'newsletter'}) do |f| %>
 <h3>Log In With Social Network</h3>
 <%= link_to(image_tag('FB-icon-20x20.png',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %></li>
-<%= link_to(image_tag('linkedin-icon-20x20.png',:alt => "Linkedin", id: "sign_in"), user_omniauth_authorize_path(:linkedin)) %></li>
+<%= link_to(image_tag('linkedin-icon-20x20.png',:alt => "Linkedin", id: "sign_in_linkedin"), user_omniauth_authorize_path(:linkedin)) %></li>
 <%= link_to(image_tag('twitter-icon-20x20.png',:alt => "Twitter", id: "sign_in"), user_omniauth_authorize_path(:twitter)) %></li> Or Login with email 
 <h3>Email</h3>
 <div class="bg">
