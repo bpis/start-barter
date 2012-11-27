@@ -1,55 +1,57 @@
 <!-- <img id="profileImage" class="photo" alt="Devendra Bpsi | Elance" src="https://ws.elance.com/php/files/main/download.php?crypted=Y3R4JTNEcHJvZmlsZV9pbWFnZSUyNmZpZCUzRDU4MjQ3MTg1JTI2cmlkJTNELTElMjZwaWQlM0Q0ODI0Njc5JTI2dCUzRDE=" style="border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true); "> -->
 <div class="eol-layout-s1" id="p-menu">
-<div id="profimeImage"> <%= link_to (image_tag current_user.profile_picture , :alt => "Profile Picture", :title => "Change?", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);"), edit_user_registration_path if current_user.profile_picture.present? %>
-					   	<%= link_to (image_tag current_user.facebook_image , :alt => "Profile Picture", :title => "Change?", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);"), edit_user_registration_path if current_user.facebook_image.present? %></div>
-<div class="clear"></div>
-<div class="edit-btn">
-	<a class="edit-btn" href="/edit" title="Edit Profile Picture" style="float: left; margin-top: 3px;">
-		<span>Edit</span>
-	</a>
-	<div class="clear"></div>
-</div>
-<div>
-	<ul class="nav-left">
-		<li id="nav-left-li-" class="nav-left-selected"><a class="nav-left-item" href="/"><span class="span-item">Overview  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Job History  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Portfolio  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Skills  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Resume/C.V.  </span></a></li>
-		<li> <div class="nav-left-divider">&nbsp;</div></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Contact Info  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Privacy Settings  </span></a></li>
-		<li id="nav-left-li-"><a class="nav-left-item" href="#"><span class="span-item">Public View of Profile  </span></a></li>
-	</ul>
-</div>
-<div class="clear"></div>
-</div>
-
-<div class="eol-layout-s4" id="p-content">
-	<div class="eol-layout-s4" id="p-hd">
-		<div class="p-layout-s3">
-			<a class="edit-btn" href="/edit" title="Edit Basic Information" style="position: relative; z-index: 1;margin-top:12px;">
-				<span>Edit</span></a>
-			<div class="p-title-div">
-				<h1 id="p-title" class="fn left padding_username"><%= user.first_name %> <%= user.last_name %></h1>
-				<div class="clear"></div>
-				<br />
-				<span class="p-summary-tagline title"><%= user.profile.tagline if user.profile %> <%= user.about_me if user.about_me.present? %></span>
-			</div>
-		</div>	
-	<div class="clear"></div>
-	<div class="p-summary-location adr">
-        <div class="left"><span class="country-name"><%=  user.country.present?  ? user.country.name : "" %><%= user.hometown if user.hometown.present? %></span> | </div>
-            <div class="left"> <span class="locality"><%= user.profile.city if user.profile %><%= user.location if user.location.present? %></span> , <span class="region"><%= user.profile.state if user.profile %></span> </div>
-         <div class="clear"></div>  
+	<div id="profimeImage">
+		<%= link_to (image_tag current_user.profile_picture , :alt => "Profile Picture", :title => "Change?", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);"), edit_user_registration_path if current_user.profile_picture.present? %>
+		<%= link_to (image_tag current_user.facebook_image , :alt => "Profile Picture", :title => "Change?", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);"), edit_user_registration_path if current_user.facebook_image.present? %>
 	</div>
 	<div class="clear"></div>
-	
+	<div class="edit-btn">
+		<a class="edit-btn" href="/edit" title="Edit Profile Picture" style="float: left; margin-top: 3px;"> <span>Edit</span> </a>
+		<div class="clear"></div>
+	</div>
+	<div>
+		<ul class="nav-left">
+			<li id="nav-left-li-" class="nav-left-selected">
+				<a class="nav-left-item" href="/"><span class="span-item">Overview </span></a>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Job History </span></a>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Portfolio </span></a>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Skills </span></a>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Resume/C.V. </span></a>
+			</li>
+			<li>
+				<div class="nav-left-divider">
+					&nbsp;
+				</div>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Contact Info </span></a>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Privacy Settings </span></a>
+			</li>
+			<li id="nav-left-li-">
+				<a class="nav-left-item" href="#"><span class="span-item">Public View of Profile </span></a>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="eol-layout-s4" id="p-content">
+	<div class="eol-layout-s4" id="p-hd">
+		<%= render :partial => "show_short_user_info", :locals => {:user => user} %>
 	</div>
 	<div class="eol-layout-s4" id="p-bd">
 		<div class="p-layout-x3" id="p-overview">
 			<div>
-				<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>				
+				<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
 				<h2 class="p-header padding_overview"> Overview </h2><div class="clear"></div>
 			</div>
 			<p class="p-about-txt" style="margin: 10px 0px;">
@@ -60,99 +62,48 @@
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
 	<!-- Skills -->
+	<h2 class="p-header padding_skill"> Skills </h2>
 	<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
-		<h2 class="p-header padding_skill"> Skills </h2>
-		<div class="clear"></div>
-		<table class="profileTable">
-			<thead>
-				<tr>
-					<th id="firstcol" style="width: 220px; padding-left: 17px;">Skill</th>
-					<th id="lastcol" colspan="2">Score</th>
-				</tr>
-			</thead>
-		
-			<tbody>
-				<tr>
-					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].name if user.skills.present? %> </td>
-					<td class="provideeProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
-						<div style="position: relative; text-align: left; padding-top: 3px;">
-							<div class="testedChart"><%= user.skills[0].proficiency if user.skills.present? %></div>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		
-		</table>
-		<div class="clear"></div>
-		<div class="p-spacer-large"></div>
-		<!-- Resume -->
-		<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
-		<h2 class="p-header padding_keyword"> Job Profile </h2>
-		
-		<div class="p-about-txt-jobProfile"><%= user.profile.job_profile if user.profile %><br><br><%= link_to "Read More >>", "#" %></div>
-		<div class="p-spacer-large"></div>
-		<!-- KeyWords -->
-		<div id="p-keywords">
-			<a class="edit-btn" href="#" title="Edit Keywords">
-				<span>Edit</span>
-			</a>
-			<h2 class="p-header padding_keyword">Keywords</h2>
-			<div class="keywordRow">
-				<div class="keywordRow keywordCell p-about-txt-jobProfile"><%= user.profile.keyword if user.profile %></div>
+	<div class="clear"></div>
+	<table class="profileTable">
+		<thead>
+			<tr>
+				<th id="firstcol" style="width: 220px; padding-left: 17px;">Skill</th>
+				<th id="lastcol" colspan="2">Score</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].name if user.skills.present? %> </td>
+				<td class="provideeProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
+				<div style="position: relative; text-align: left; padding-top: 3px;">
+					<div class="testedChart">
+						<%= user.skills[0].proficiency if user.skills.present? %>
+					</div>
+				</div></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="clear"></div>
+	<div class="p-spacer-large"></div>
+	<!-- Resume -->
+	<h2 class="p-header padding_keyword"> Job Profile </h2>
+	<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
+	<div class="p-about-txt-jobProfile">
+		<%= user.profile.job_profile if user.profile %>
+		<br>
+		<br>
+		<!-- <%= link_to "Read More >>", "#" %> -->
+	</div>
+	<div class="p-spacer-large"></div>
+	<!-- KeyWords -->
+	<div id="p-keywords">
+		<h2 class="p-header padding_keyword">Keywords</h2>
+		<a class="edit-btn" href="#" title="Edit Keywords"><span>Edit</span></a>
+		<div class="keywordRow">
+			<div class="keywordRow keywordCell p-about-txt-jobProfile">
+				<%= user.profile.keyword if user.profile %>
 			</div>
 		</div>
+	</div>
 </div>
-
-<!-- <div class="row">
-  <aside class="span4">
-    <section>
-    	<% if current_user.profile_picture.present? %>
-			<p><%= link_to (image_tag current_user.profile_picture , :alt => "Profile Picture", :width => 120, :height => 120, :title => "Change?"), edit_user_registration_path %></p>
-		<% else %>
-			<p><%= link_to image_tag('default_profile_image.png', :alt => "Profile Picture", :width => 120, :height => 120, :title => "change?").to_s, edit_user_registration_path %></p>
-		<% end %>
-    </section>
-  </aside>
-</div> -->
-<!-- <h3 style="position: absolute; left: 210px; top: 190px; color: black;"> Work History </h3> -->
-
-<!-- <h3 style="position: absolute; left: 210px; top: 190px; color: #50852C;"><%= user.first_name %><%= user.last_name %></h3>
-<h4 style="position: absolute; left: 400px; top: 230px; color: #FF0000;"><%= link_to "Edit", edit_user_registration_path %></h4>
-<h4 style="position: absolute; left: 210px; top: 270px; color: black; font-size: 15px;"><%= user.designation %><br /></h4>
-<h4 style="position: absolute; left: 210px; top: 290px; color: black"><%= user.organisation %></h4>
-<div class="verticalLine">
-	<h4 style="position: absolute; left: 50px; top: 0px; color: black;"> Email: </h4><%= user.email %>
-</div> -->
-<!-- <div>
-	<div class="profile_email"> <h4>email</h4> </div>
-	<div class="profile_email_txt"><%= text_field_tag :email, user.email, :readonly => true if user.email.present? %></div>
-</div>
-<div>
-	<div class="profile_username"> <h4>Username</h4> </div>
-	<div class="profile_username_txt"><%= text_field_tag :username,user.username, :readonly => true if user.username.present? %></div>
-</div>
-<div>
-	<div class="profile_fname"> <h4>First Name</h4> </div>
-	<div class="profile_fname_txt"><%= text_field_tag :first_name,user.first_name, :readonly => true if user.first_name.present? %></div>
-</div>
-<div>
-	<div class="profile_lname"> <h4>Last Name</h4> </div>
-	<div class="profile_lname_txt"><%= text_field_tag :last_name,user.last_name, :readonly => true if user.last_name.present? %></div>
-</div>
-<div>
-	<div class="profile_country"> <h4>Country</h4> </div>
-	<div class="profile_country_txt"><%= text_field_tag :country,user.country.name, :readonly => true if user.country.present?%></div>
-</div>
-<div>
-	<div class="profile_iam"> <h4>I am</h4> </div>
-	<div class="profile_iam_txt"><%= text_area_tag :iam,user.iam, :readonly => true if user.iam.present? %></div>
-</div>
-<div>
-	<div class="profile_lookingfor"> <h4>Looking for</h4> </div>
-	<div class="profile_lookingfor_txt"><%= text_area_tag :iamlookinfor,user.iamlookingfor.html_safe, :readonly => true if user.iamlookingfor.present? %></div>
-</div> -->
-<!-- <h4> Recommended People for you </h4> 
-	<% @users.each do |user| %>
-		<%= link_to user.username if user.iamlookingfor == user.iam %>
-	<% end %><br /><br /> -->
-<!-- <div class="profile_btn_edit"><%= link_to "Edit profile", edit_user_registration_path, :class=> "button" %></div> -->

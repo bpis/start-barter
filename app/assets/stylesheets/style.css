@@ -182,9 +182,6 @@ top: 110px;
 min-height: 300px;
 }*/
 
-
-
-
 .email{
 	position: absolute; 
 	left: 95px; 
@@ -643,7 +640,7 @@ padding-right: 10px;
 #p-hd {
 border-bottom: dotted 1px #D7D7D7;
 padding: 5px 0px 15px 15px;
-width: 745px;
+width: 740px;
 min-height: 100px;
 position: relative;
 }
@@ -654,7 +651,7 @@ margin-bottom: 30px;
 display: inline;
 float: left;
 padding-right: 20px;
-width: 440px;
+width: 740px;
 }
 .p-title-div {
 width: 380px;
@@ -819,4 +816,9 @@ line-height: 20px;
     text-align: center;
 }
 
-
+textarea {
+  resize: horizontal;
+  height: 60px;
+  margin-bottom: 5px;
+  width: 150px;
+}

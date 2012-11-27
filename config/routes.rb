@@ -6,7 +6,10 @@ StartBarter::Application.routes.draw do
   match '/about_company', :to => "static_pages#about_company"
   match '/our_vision', :to => "static_pages#our_vision"
   match '/our_mission', :to => "static_pages#our_mission"
-
+  match "profile" => "home#profile"
+  match "new_profile" => "home#new_profile"
+  match '/edit_user_info' => "home#edit_user_info"
+  match '/update_user_info' => "home#update_user_info"
   devise_for :users,
       :controllers => { 
       :sessions           => 'devise/sessions', 

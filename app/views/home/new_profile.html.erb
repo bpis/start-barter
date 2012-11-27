@@ -1,0 +1,8 @@
+<% if current_user.present? %>
+	<% if @profile.present?%>
+		<%= form_for @profile, :url => {:action => "profile", :controller => "home"}, :html => {:multipart => true} do |f| %>
+			<%= render :partial => "home/profile_form", :locals => {:f => f} %><br />
+			<%= f.submit "Save Profile" %>
+		<% end %>
+	<% end %>
+<% end %>

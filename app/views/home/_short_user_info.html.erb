@@ -1,0 +1,11 @@
+<%#= form_for "update_user_info", :action => "update_user_info", :controller => "home", :html => {:remote => true} do |f| %>
+ <%= form_for(user, :url => update_user_info_path, :html => { :remote => true }) do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br />
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br />
+  <%#= f.label :tagline %>
+  <%#= f.text_field :tagline %>
+  <%= f.submit "Update" %>
+  <% end %>
+<%= link_to "Back", '/' %>

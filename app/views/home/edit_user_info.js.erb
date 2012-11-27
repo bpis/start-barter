@@ -1,0 +1,2 @@
+
+$("#p-hd").html('<%= escape_javascript(render :partial => 'home/short_user_info', :locals => {:user => @user_fname_lname} ).html_safe %>');
