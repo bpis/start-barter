@@ -10,6 +10,8 @@ StartBarter::Application.routes.draw do
   match "new_profile" => "home#new_profile"
   match '/edit_user_info' => "home#edit_user_info"
   match '/update_user_info' => "home#update_user_info"
+  
+  
   devise_for :users,
       :controllers => { 
       :sessions           => 'devise/sessions', 

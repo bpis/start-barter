@@ -1,5 +1,5 @@
 <div class="p-layout-s3">
-	<%= link_to "Edit", edit_user_info_path, :class => "edit-btn", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
+	<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_username", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
 	<div class="p-title-div">
 		<h1 id="p-title" class="fn left padding_username"><%= user.first_name %> <%= user.last_name %></h1>
 		<div class="clear"></div>
@@ -18,3 +18,12 @@
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>
+
+<script>
+	$("#edit_username").click(function(){
+		$("#p-hd").html('<%= escape_javascript(render :partial => 'home/short_user_info', :locals => {:user => @user_fname_lname} ).html_safe %>');
+	});
+
+</script>
+
+

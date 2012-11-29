@@ -1,6 +1,4 @@
 <% if @user %>
-
-$("#p-hd").html('<%= escape_javascript(render :partial => 'home/show_short_user_info', :locals => {:user => current_user} ).html_safe %>');
-alert('Profile has been saved Successfully');
-
-<% end %>
+	$("#p-hd").html('<%= escape_javascript(render :partial => 'home/show_short_user_info', :locals => {:user => current_user} ).html_safe %>');
+	alert('Profile has been saved Successfully');
+<% end %> 

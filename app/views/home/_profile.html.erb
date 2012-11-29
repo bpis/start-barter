@@ -49,15 +49,7 @@
 		<%= render :partial => "show_short_user_info", :locals => {:user => user} %>
 	</div>
 	<div class="eol-layout-s4" id="p-bd">
-		<div class="p-layout-x3" id="p-overview">
-			<div>
-				<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
-				<h2 class="p-header padding_overview"> Overview </h2><div class="clear"></div>
-			</div>
-			<p class="p-about-txt" style="margin: 10px 0px;">
-				<%= user.profile.overview if user.profile %>
-			</p>
-		</div>
+		<%= render :partial => "show_short_user_overview", :locals => {:user => user} %>
 	</div>
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
@@ -107,3 +99,4 @@
 		</div>
 	</div>
 </div>
+

@@ -8,25 +8,26 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessor :password, :password_confirmation, :current_password
   attr_accessor :login
-  attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture
-  attr_accessible :current_password
+  attr_accessible :login, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :username, :company_name, :country_id, :provider, :uid, :about_me, :dob, :hometown, :location, :relationships, :status, :gender, :organisation, :designation, :profession, :facebook_url, :educational_details, :facebook_image, :iam, :iamlookingfor, :profile_picture, :profile_attributes
+  attr_accessible :current_password, :profile
+  
+  #callback methods
   after_create :create_user_profile
   after_create :create_user_skills
-  
-  # accepts_nested_attributes_for :profile
-  # accepts_nested_attributes_for :skills
-  
+   
+  # Associations
   has_one :profile
   has_many :skills
   belongs_to :country
   
+  #Image Uploader
   mount_uploader :profile_picture, ProfilePictureUploader
-  #has_attached_file :profile_picture, :styles => { :small => "100x", :medium => "166x", :large => "300x", :thumb => "60x" },
-                    #:url  => "/assets/users/:id/:style/:basename.:extension",
-                    #:path => ":rails_root/app/assets/images/users/:id/:style/:basename.:extension"
+  
+  # Nested attributes
+  accepts_nested_attributes_for :profile
+  #accepts_nested_attributes_for :skills
+  
 
-  #has_one :country
-  # attr_accessible :title, :body
   #validations
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -58,12 +59,6 @@ class User < ActiveRecord::Base
         where(conditions).first
       end
     end
-
-
-  #def self.find_for_authentication(conditions)
-   # login = conditions.delete(:login)
-   # where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
-  #end
   
   #for facebook integration with omniauth
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -95,9 +90,9 @@ class User < ActiveRecord::Base
     user
   end
 
+  # For Linkedin Authentication with omniauth - Linkedin
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    #debugger
     unless user                      
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
                       first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",
@@ -123,6 +118,7 @@ class User < ActiveRecord::Base
     user
   end
   
+  # Devise Method
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -135,7 +131,6 @@ private
   
   def create_user_profile
    @profile = self.create_profile
-   #self.build_profile
   end 
   
   def create_user_skills
