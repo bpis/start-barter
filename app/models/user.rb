@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
   #for facebook integration with omniauth
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    
     unless user
       user = User.new(username:auth.extra.raw_info.name.present? ? auth.extra.raw_info.name : "",
                       first_name:auth.extra.raw_info.first_name.present? ? auth.extra.raw_info.first_name : "",
@@ -93,7 +94,9 @@ class User < ActiveRecord::Base
   # For Linkedin Authentication with omniauth - Linkedin
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user                      
+    
+    unless user    
+                     
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
                       first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",
                       last_name:auth.extra.raw_info.lastName.present? ? auth.extra.raw_info.lastName : "",
@@ -103,17 +106,27 @@ class User < ActiveRecord::Base
                       password:Devise.friendly_token[0,20],
                       company_name:auth.extra.raw_info.industry.present? ? auth.extra.raw_info.industry : "",
                       hometown:auth.extra.raw_info.location.name.present? ? auth.extra.raw_info.location.name : "",
-                      about_me:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
                       location:auth.extra.raw_info.location.name.present? ? auth.extra.raw_info.location.name : "",                      
                       organisation:auth.extra.raw_info.industry.present? ? auth.extra.raw_info.industry : "",   
                       designation:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
-                        facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
-                        profile_picture:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",  
-                        facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : ""
+                         facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
+                         profile_picture:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",  
+                         facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",
                         
-                      )        
+                        
+                        
+                      )
+                             
       user.skip_confirmation!
       user.save!
+      user_profile =  user.profile.update_attributes(:tagline => auth.extra.raw_info.headline, :overview => auth.extra.raw_info.summary)
+      user_skills = auth.extra.raw_info.skills.values[1]
+
+      user_skills.each do |s|
+          u = user.skills.build(name:s.skill.name, user_id:user.id)
+      end
+      # user_skills = user.skills(name:auth.extra.raw_info.skills.values[1].first.skill.name ) 
+      
     end
     user
   end

@@ -65,21 +65,28 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;"> <%= user.skills[0].name if user.skills.present? %> </td>
-				<td class="provideeProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
-				<div style="position: relative; text-align: left; padding-top: 3px;">
-					<div class="testedChart">
-						<%= user.skills[0].proficiency if user.skills.present? %>
-					</div>
-				</div></td>
-			</tr>
+			<% if user.skills.present? %>
+				<% user.skills.order(:name).each do |skill| %>
+				<tr>
+					<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;">
+						<%= skill.name %>
+					</td>
+					<td class="providerProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
+						<div style="position: relative; text-align: left; padding-top: 3px;">
+							<div class="testedChart">
+								<%= skill.proficiency %>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<% end %>
+			<% end %>
 		</tbody>
 	</table>
 	<div class="clear"></div>
 	<div class="p-spacer-large"></div>
 	<!-- Resume -->
-	<h2 class="p-header padding_keyword"> Job Profile </h2>
+	<h2 class="p-header padding_keyword"> Experience </h2>
 	<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
 	<div class="p-about-txt-jobProfile">
 		<%= user.profile.job_profile if user.profile %>
@@ -99,4 +106,3 @@
 		</div>
 	</div>
 </div>
-
