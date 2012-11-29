@@ -1,15 +1,15 @@
 <div class="p-layout-x3" id="p-overview">
 	<div>
-		<%= link_to "Edit", edit_user_info_path, :class => "edit-btn", :id => "edit_overview", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
+		<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_overview", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
 		<h2 class="p-header padding_overview"> Overview </h2><div class="clear"></div>
 	</div>
 	<p class="p-about-txt" style="margin: 10px 0px;">
-		<%= user.profile.overview if user.profile %>
+		<%= current_user.profile.overview if current_user.profile.overview %>
 	</p>
 </div>
 <script>
 	$("#edit_overview").click(function(){
-		$("#p-bd").html('<%= escape_javascript(render :partial => 'home/short_user_info', :locals => {:user => @user_fname_lname} ).html_safe %>');
+		$("#p-bd").html('<%= escape_javascript(render :partial => 'home/edit_profile_overview', :locals => {:profile => current_user.profile} ).html_safe %>');
 	});
 </script>
 

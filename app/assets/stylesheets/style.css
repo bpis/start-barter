@@ -822,3 +822,12 @@ textarea {
   margin-bottom: 5px;
   width: 150px;
 }
+
+.textarea_overview{
+	resize: horizontal;
+  	height: 60px;
+ 	margin-bottom: 5px;
+ 	width: 250px;
+
+}
+

@@ -27,12 +27,16 @@ class HomeController < ApplicationController
 
   def edit_user_info
     @user_fname_lname = current_user
+    @profile = current_user.profile
   end
 
   def update_user_info
     if params[:user]
       @user = current_user.update_attributes(params[:user])
     end  
+    if params[:profile]
+      @profile_overview = current_user.profile.update_attributes(params[:profile])
+    end
     respond_to do |format|
       format.js
     end
