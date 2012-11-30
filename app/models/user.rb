@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
   # For Linkedin Authentication with omniauth - Linkedin
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    
+   
     unless user    
                      
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
@@ -124,17 +124,24 @@ class User < ActiveRecord::Base
           u = user.skills.build(name:s.skill.name, user_id:user.id)
       end
       
-      a = []
-      a << auth.extra.raw_info.positions.values[1].second.startDate.month
-      a << auth.extra.raw_info.positions.values[1].second.startDate.year
-      b =[]
-      b << auth.extra.raw_info.positions.values[1].second.endDate.month
-      b << auth.extra.raw_info.positions.values[1].second.endDate.year
-      
-      b.join("-")
+       # a = []
+       # a << auth.extra.raw_info.positions.values[1].first.startDate.month
+       # a << auth.extra.raw_info.positions.values[1].first.startDate.year
+       # b =[]
+       # b << auth.extra.raw_info.positions.values[1].second.endDate.month
+       # b << auth.extra.raw_info.positions.values[1].second.endDate.year
+     
+   
        user_experiences = auth.extra.raw_info.positions.values[1]
        user_experiences.each do |e|
-        ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:a.join("-"), end_date:b.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
+         a = []
+         a << e.startDate.month
+         a << e.startDate.year
+         b = []
+         b << e.endDate.month
+         b << e.endDate.year
+        #ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:a.join("-"), end_date:b.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
+         ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:a.join("-"), end_date:b.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
         #user_experience = user.experiences.build(:location => auth.extra.raw_info.location.name) 
       end 
       # user_skills = user.skills(name:auth.extra.raw_info.skills.values[1].first.skill.name ) 
