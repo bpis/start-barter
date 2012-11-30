@@ -13,11 +13,13 @@ class User < ActiveRecord::Base
   
   #callback methods
   after_create :create_user_profile
-  after_create :create_user_skills
-   
+  after_create :create_user_skills, :unless => :check_provider?
+  after_create :create_user_experiences, :unless => :check_provider?
+  
   # Associations
   has_one :profile
   has_many :skills
+  has_many :experiences
   belongs_to :country
   
   #Image Uploader
@@ -94,7 +96,7 @@ class User < ActiveRecord::Base
   # For Linkedin Authentication with omniauth - Linkedin
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    
+    debugger
     unless user    
                      
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
@@ -111,20 +113,30 @@ class User < ActiveRecord::Base
                       designation:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
                          facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
                          profile_picture:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",  
-                         facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",
-                        
-                        
-                        
+                         facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "", 
                       )
                              
       user.skip_confirmation!
-      user.save!
-      user_profile =  user.profile.update_attributes(:tagline => auth.extra.raw_info.headline, :overview => auth.extra.raw_info.summary)
-      user_skills = auth.extra.raw_info.skills.values[1]
-
-      user_skills.each do |s|
+       user.save!
+       user_profile =  user.profile.update_attributes(:tagline => auth.extra.raw_info.headline, :overview => auth.extra.raw_info.summary)
+       user_skills = auth.extra.raw_info.skills.values[1]
+       user_skills.each do |s|
           u = user.skills.build(name:s.skill.name, user_id:user.id)
       end
+      
+      a = []
+      a << auth.extra.raw_info.positions.values[1].second.startDate.month
+      a << auth.extra.raw_info.positions.values[1].second.startDate.year
+      b =[]
+      b << auth.extra.raw_info.positions.values[1].second.endDate.month
+      b << auth.extra.raw_info.positions.values[1].second.endDate.year
+      
+      b.join("-")
+       user_experiences = auth.extra.raw_info.positions.values[1]
+       user_experiences.each do |e|
+        ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:a.join("-"), end_date:b.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
+        #user_experience = user.experiences.build(:location => auth.extra.raw_info.location.name) 
+      end 
       # user_skills = user.skills(name:auth.extra.raw_info.skills.values[1].first.skill.name ) 
       
     end
@@ -143,10 +155,18 @@ class User < ActiveRecord::Base
 private
   
   def create_user_profile
-   @profile = self.create_profile
+    self.create_profile
   end 
   
   def create_user_skills
-    @skill = self.skills.build
+   self.skills.create
+  end
+  
+  def create_user_experiences
+    self.experiences.create
+  end
+  
+  def check_provider? 
+    self.provider.present?
   end
 end

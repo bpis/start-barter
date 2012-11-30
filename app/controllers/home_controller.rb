@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     #@user = current_user
     @users = User.all
     @skills = Skill.all
+    @experiences = Experience.all
     user = current_user
   end
 
