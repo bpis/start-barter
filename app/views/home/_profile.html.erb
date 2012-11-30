@@ -2,11 +2,13 @@
 <div class="eol-layout-s1" id="p-menu">
 	<div id="profimeImage">
 		<%= link_to (image_tag current_user.profile_picture , :alt => "Profile Picture", :title => "Change?", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);"), edit_user_registration_path if current_user.profile_picture.present? %>
-		<%= link_to (image_tag current_user.facebook_image , :alt => "Profile Picture", :title => "Change?", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);"), edit_user_registration_path if current_user.facebook_image.present? %>
+		<%= link_to (image_tag current_user.facebook_image , :alt => "Profile Picture", :style => "border: solid 1px #CCC; max-width:160px; max-height:160px; height:expression(this.height &gt; 159 ? 160: true); width:expression(this.width &gt; 159 ? 160: true);") if current_user.facebook_image.present? %>
 	</div>
 	<div class="clear"></div>
 	<div class="edit-btn">
-		<a class="edit-btn" href="/edit" title="Edit Profile Picture" style="float: left; margin-top: 3px;"> <span>Edit</span> </a>
+		<% if !current_user.facebook_image.present? %>
+			<a class="edit-btn" href="/edit" title="Edit Profile Picture" style="float: left; margin-top: 3px;"> <span>Edit</span> </a>
+		<% end %>
 		<div class="clear"></div>
 	</div>
 	<div>
