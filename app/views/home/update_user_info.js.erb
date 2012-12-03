@@ -6,7 +6,4 @@
 	$("#p-bd").html('<%= escape_javascript(render :partial => 'home/show_short_user_overview', :locals => {:user => current_user} ).html_safe %>');
 	alert('Profile has been saved Successfully');
 <% end %> 
-<% if @user_skills %>
-	$("#p-header padding_skill")html('<%= escape_javascript(render :partial => 'home/show_short_user_skill', :locals => {:user => current_user} ).html_safe %>');
-	alert('Profile has been saved successfully');
-<% end %>
+
