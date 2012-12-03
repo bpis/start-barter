@@ -4,3 +4,6 @@
 <% if @profile %>
 	$("#p-bd").html('<%= escape_javascript(render :partial => 'home/show_short_user_overview', :locals => {:user => current_user.profile} ).html_safe %>');
 <% end %>
+<% if @skills %>
+	$("#p-header padding_skill").html('<%= escape_javascript(render :partial => 'home/show_short_user_skill', :locals => {:user => current_user.skills} ).html_safe %>');
+<% end %>

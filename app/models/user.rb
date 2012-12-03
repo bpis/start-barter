@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   
   # Nested attributes
   accepts_nested_attributes_for :profile
-  #accepts_nested_attributes_for :skills
+  accepts_nested_attributes_for :skills
+  accepts_nested_attributes_for :experiences
   
 
   #validations
@@ -83,9 +84,9 @@ class User < ActiveRecord::Base
                       organisation:auth.extra.raw_info.work.present? && auth.extra.raw_info.work[0].employer.present? ?  auth.extra.raw_info.work[0].employer.name : "",
                       designation:auth.extra.raw_info.work.present? && auth.extra.raw_info.work[0].position.present? ? auth.extra.raw_info.work[0].position.name : "",
                       facebook_url:auth.info.urls.Facebook.present? ? auth.info.urls.Facebook : "" ,
-                         educational_details:auth.extra.raw_info.education.present? ? auth.extra.raw_info.education[1].school.name : "" ,
-                         profile_picture:auth.info.image.present? ? auth.info.image : "",
-                         facebook_image:auth.info.image.present? ? auth.info.image : "" 
+                      educational_details:auth.extra.raw_info.education.present? ? auth.extra.raw_info.education[1].school.name : "" ,
+                      profile_picture:auth.info.image.present? ? auth.info.image : "",
+                      facebook_image:auth.info.image.present? ? auth.info.image : "" 
                       )
       user.skip_confirmation!
       user.save!
@@ -96,9 +97,14 @@ class User < ActiveRecord::Base
   # For Linkedin Authentication with omniauth - Linkedin
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-   
+    
     unless user    
-                     
+        dob = []
+        if auth.extra.raw_info.dateOfBirth.present?
+          dob << auth.extra.raw_info.dateOfBirth.day
+          dob << auth.extra.raw_info.dateOfBirth.month
+          dob << auth.extra.raw_info.dateOfBirth.year
+        end        
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
                       first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",
                       last_name:auth.extra.raw_info.lastName.present? ? auth.extra.raw_info.lastName : "",
@@ -109,43 +115,45 @@ class User < ActiveRecord::Base
                       company_name:auth.extra.raw_info.industry.present? ? auth.extra.raw_info.industry : "",
                       hometown:auth.extra.raw_info.location.name.present? ? auth.extra.raw_info.location.name : "",
                       location:auth.extra.raw_info.location.name.present? ? auth.extra.raw_info.location.name : "",                      
+                      dob:dob.join("-"),            
                       organisation:auth.extra.raw_info.industry.present? ? auth.extra.raw_info.industry : "",   
                       designation:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
-                         facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
-                         profile_picture:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",  
-                         facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "", 
+                      facebook_url:auth.extra.raw_info.publicProfileUrl.present? ? auth.extra.raw_info.publicProfileUrl : "",
+                      profile_picture:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "",  
+                      facebook_image:auth.extra.raw_info.pictureUrl.present? ? auth.extra.raw_info.pictureUrl : "", 
                       )
                              
-      user.skip_confirmation!
-       user.save!
-       user_profile =  user.profile.update_attributes(:tagline => auth.extra.raw_info.headline, :overview => auth.extra.raw_info.summary)
-       user_skills = auth.extra.raw_info.skills.values[1]
-       user_skills.each do |s|
-          u = user.skills.build(name:s.skill.name, user_id:user.id)
-      end
-      
-       a = []
-       a << auth.extra.raw_info.positions.values[1].first.startDate.month
-       a << auth.extra.raw_info.positions.values[1].first.startDate.year
-       b =[]
-       b << auth.extra.raw_info.positions.values[1].second.endDate.month
-       b << auth.extra.raw_info.positions.values[1].second.endDate.year
-     
-   
-       user_experiences = auth.extra.raw_info.positions.values[1]
-       user_experiences.each do |e|
-         # a = []
-         # a << e.startDate.month
-         # a << e.startDate.year
-         # b = []
-         # b << e.endDate.month
-         # b << e.endDate.year
-        ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:a.join("-"), end_date:b.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
-         #ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:a.join("-"), end_date:b.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
-        #user_experience = user.experiences.build(:location => auth.extra.raw_info.location.name) 
-      end 
-      # user_skills = user.skills(name:auth.extra.raw_info.skills.values[1].first.skill.name ) 
-      
+        user.skip_confirmation!
+        user.save!
+        user_profile =  user.profile.update_attributes(
+                              tagline:auth.extra.raw_info.headline.present? ? auth.extra.raw_info.headline : "",
+                              overview:auth.extra.raw_info.summary.present? ? auth.extra.raw_info.summary : "",
+                              phone_no:auth.extra.raw_info.phoneNumbers.values[1].first.phoneNumber.present? ? auth.extra.raw_info.phoneNumbers.values[1].first.phoneNumber : "",
+                              address_line_1:auth.extra.raw_info.mainAddress.present? ? auth.extra.raw_info.mainAddress : "",
+                              address_line_2:auth.extra.raw_info.mainAddress.present? ? auth.extra.raw_info.mainAddress : "")
+       
+       
+        user_skills = auth.extra.raw_info.skills.values[1]
+        if auth.extra.raw_info.skills.values[1].present?
+          user_skills.each do |s|
+            u = user.skills.build(name:s.skill.name, user_id:user.id)
+          end
+        end
+       
+        user_experiences = auth.extra.raw_info.positions.values[1]
+        user_experiences.each do |e|
+        sd = []
+        if e.startDate.present?
+          sd << e.startDate.month
+          sd << e.startDate.year
+          end
+        ed = []
+        if e.endDate.present?
+          ed << e.endDate.month 
+          ed << e.endDate.year
+          end 
+        ue = user.experiences.build(company_name:e.company.name, title:e.title, is_current:e.isCurrent, description:e.summary, start_date:sd.join("-"), end_date:ed.join("-"), location:auth.extra.raw_info.location.name, user_id:user.id)
+      end       
     end
     user
   end

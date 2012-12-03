@@ -1,0 +1,44 @@
+<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_skill", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
+<h2 class="p-header padding_skill"> Skills </h2>
+
+<div class="clear"></div>
+<table class="profileTable">
+	<thead>
+		<tr>
+			<th id="firstcol" style="width: 220px; padding-left: 17px;">Skill</th>
+			<th id="lastcol" colspan="2">Score</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% if user.skills.present? %>
+		<% user.skills.order(:name).each do |skill| %>
+		<tr>
+			<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;">
+				<%= skill.name %> 
+			</td>
+			<td class="providerProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
+				<div style="position: relative; text-align: left; padding-top: 3px;">
+					<div class="testedChart">
+						<!-- <%= skill.proficiency %> -->
+						
+						<div class="left selfChartColor">
+							
+						</div>
+						<div class="left unselectedChartColor">
+						
+						</div>
+						
+						<div class="clear"></div>
+					</div>
+				</div>
+			</td>
+		</tr> 
+		<% end %>
+		<% end %>
+	</tbody>
+</table>
+<script>
+	$("#edit_skill").click(function(){
+		$("#p-bd").html('<%= escape_javascript(render :partial => 'home/edit_user_skill', :locals => {:skills => current_user.skills} ).html_safe %>');
+	});
+</script>

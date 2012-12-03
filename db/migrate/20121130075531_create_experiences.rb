@@ -5,8 +5,8 @@ class CreateExperiences < ActiveRecord::Migration
       t.string :company_name
       t.string :title
       t.string :location
-      t.string :start_date
-      t.string :end_date
+       t.string :start_date
+       t.string :end_date
       t.boolean :is_current
       t.string :description
 

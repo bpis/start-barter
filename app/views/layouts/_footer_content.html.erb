@@ -20,13 +20,10 @@
   </section>
 	<section class="col_2">
 		<h3>Follow Us</h3>
-		<ul id="icons">
-
-			<li><a href="#">
-			
-			<%= link_to(image_tag('icon1.jpg',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %></li>
-			<%= link_to(image_tag('linkedin-icon-20x20.png',:alt => "Linkedin", id: "sign_in"), user_omniauth_authorize_path(:linkedin)) %></li>
-			<%= link_to(image_tag('twitter-icon-20x20.png',:alt => "Twitter", id: "sign_in"), user_omniauth_authorize_path(:twitter)) %></li>
+		<ul id="icons">			
+			<%= link_to(image_tag('icon1.jpg',:alt => "Facebook"), "http://www.facebook.com/") %></li>
+			<%= link_to(image_tag('linkedin-icon-20x20.png',:alt => "Linkedin"), "https://www.linkedin.com") %></li>
+			<%= link_to(image_tag('twitter-icon-20x20.png',:alt => "Twitter"), "https://twitter.com/") %></li>
 		</ul>
   </section>
 	<section class="col_1">

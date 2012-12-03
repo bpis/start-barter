@@ -1,0 +1,11 @@
+<%= form_for(current_user.skills, :url => update_user_info_path, :html => {:class => "edit_user", :remote => true }) do |f| %>
+  
+  Update Skills <br />
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+
+  <%= f.submit "Update" %>
+  <% end %>
+
+<%= link_to "Back", edit_user_info_path, :class => "back", :id => "back_to_previous", :remote => true %>
