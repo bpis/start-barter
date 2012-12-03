@@ -252,7 +252,7 @@
 		<h6 class="p-header">Identity</h6>
 		<div class="identity-item-first">
 			<div class="identity-item-label">Username</div>
-			<div class="identity-item-value"><%= user.username %></div>
+			<div class="identity-item-value"><%= user.username if user.username.present? %></div>
 			<div class="clear"></div>
 		</div>
 		<div class="identity-item">
@@ -272,12 +272,12 @@
 		</div>
 		<div class="identity-item">
 			<div class="identity-item-label">Member Since</div>
-			<div class="identity-item-value"><%= user.created_at.strftime("%d %B %Y") %></div>
+			<div class="identity-item-value"><%= user.created_at.strftime("%d %B %Y") if user.created_at.present? %></div>
 			<div class="clear"></div>
 		</div>
 		<div class="identity-item">
 			<div class="identity-item-label">Birthday</div>
-			<div class="identity-item-value"><%= user.dob.strftime("%d %B %Y") %></div>
+			<div class="identity-item-value"><%= user.dob.strftime("%d %B %Y") if user.dob.present? %></div>
 			<div class="clear"></div>
 		</div>
 		<div class="identity-item">
