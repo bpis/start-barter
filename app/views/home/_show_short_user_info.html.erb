@@ -12,15 +12,21 @@
 <div class="p-summary-location adr">
 	<div class="left">
 		<% if !user.provider.present? %>
-			<span class="country-name"><%= user.country.present?  ? user.country.name : "" %></span> ,
+			<% if user.country.present? %>
+			<span class="country-name">
+				<%= user.country.present?  ? user.country.name : "" %>
+			</span> ,
+			<% end %>
 		<% end %>
 		<%= user.hometown if user.hometown.present? %>
 	</div>
 	<div class="left">
 		<% if !user.provider.present? %>
+			<% if user.profile.city.present? %>
 			<span class="locality">
-				<%= user.profile.city if user.profile.city.present? %>
+					<%= user.profile.city %>
 			</span> -
+			<% end %>
 			<span class="region">
 				<%= user.profile.state if user.profile.state.present? %>
 			</span>
