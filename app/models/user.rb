@@ -154,7 +154,7 @@ class User < ActiveRecord::Base
             if e.startDate.present?
               sd << e.startDate.month
               sd << e.startDate.year
-            end  
+              end  
             if e.endDate.present?
               ed << e.endDate.month 
               ed << e.endDate.year

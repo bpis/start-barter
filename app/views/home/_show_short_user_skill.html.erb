@@ -7,7 +7,7 @@
 	<thead>
 		<tr>
 			<th id="firstcol" style="width: 220px; padding-left: 17px;">Skill</th>
-			<th id="lastcol" colspan="2">Score</th>
+			<th id="lastcol" colspan="2">Proficiency</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,15 +20,12 @@
 			<td class="providerProfileSkillItemRow" style="overflow: visible; padding-top: 13px;">
 				<div style="position: relative; text-align: left; padding-top: 3px;">
 					<div class="testedChart">
-						<!-- <%= skill.proficiency %> -->
-						
-						<div class="left selfChartColor">
-							
-						</div>
-						<div class="left unselectedChartColor">
-						
-						</div>
-						
+						<% skill.proficiency.to_i.times do |i| %>
+							<div class="left selfChartColor"></div>
+						<% end %>
+						<% (10 - skill.proficiency.to_i).times do |i| %>
+							<div class="left unselectedChartColor"></div>
+						<% end %>
 						<div class="clear"></div>
 					</div>
 				</div>

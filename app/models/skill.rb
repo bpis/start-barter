@@ -3,4 +3,5 @@ class Skill < ActiveRecord::Base
   belongs_to :user
   
   validates :user_id, presence: true
+  validates :proficiency, :length => { :in => 1..10 }, :numericality => { :only_integer => true}
 end
