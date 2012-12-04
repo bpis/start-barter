@@ -102,7 +102,6 @@ class User < ActiveRecord::Base
   # For Linkedin Authentication with omniauth - Linkedin
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    debugger
     unless user    
         dob = []
         if auth.extra.raw_info.dateOfBirth.present?
