@@ -24,7 +24,12 @@ StartBarter::Application.routes.draw do
       :path_names => {:sign_in => 'users/sign_in', :sign_out => 'users/sign_out', :sign_up => 'users/sign_up'}
     
     
-    resources :users
+    resources :users 
+ 
+       
+
+     
+    
 
   root :to => 'home#index'
 

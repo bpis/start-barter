@@ -32,16 +32,24 @@ class HomeController < ApplicationController
   end
 
   def update_user_info
+    
     if params[:user]
       @user = current_user.update_attributes(params[:user])
     end  
     if params[:profile]
       @profile_overview = current_user.profile.update_attributes(params[:profile])
     end
+   
+    if params[:skill] && params[:id]
+      @skill = current_user.skills.find(params[:id])
+       @skill.update_attributes(:name => params[:skill][:name], :proficiency => params[:skill][:proficiency])
+    end
     respond_to do |format|
       format.js
     end
     
   end
+  
+
 
 end

@@ -1,8 +1,4 @@
-<h2 class="p-header padding_skill"> Skills </h2>
-<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_skill", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
-
-
-<div class="clear"></div>
+<div id="show_user_skill">
 <table class="profileTable">
 	<thead>
 		<tr>
@@ -13,7 +9,7 @@
 	<tbody>
 		<% if user.skills.present? %>
 		<% user.skills.order(:name).each do |skill| %>
-		<tr>
+		<tr id="skill_edit_<%= skill.id %>">
 			<td class="binrowheader providerProfileSkillItemRow" style="padding-top: 13px; font-weight: normal; padding-left: 17px;">
 				<%= skill.name %> 
 			</td>
@@ -30,13 +26,19 @@
 					</div>
 				</div>
 			</td>
+			<td>
+				<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_skill_#{skill.id}", :title => "Edit Basic Information", :style => "position: relative; z-index: 1;margin-top:12px;", :remote => true %>
+			</td>
 		</tr> 
+		<script>
+			$("#edit_skill_<%= skill.id %>").click(function(){
+				$("#show_user_skill").html('<%= escape_javascript(render :partial => 'edit_user_skill', :locals => {:skill => skill, :id => skill.id } ).html_safe %>');
+			});
+	
+		</script>
 		<% end %>
 		<% end %>
 	</tbody>
 </table>
-<!-- <script>
-	$("#edit_skill").click(function(){
-		$("#p-bd").html('<%= escape_javascript(render :partial => 'home/edit_user_skill', :locals => {:skills => current_user.skills} ).html_safe %>');
-	});
-</script> -->
+</div>
+

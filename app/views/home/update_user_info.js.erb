@@ -5,5 +5,8 @@
 <% if @profile_overview %>
 	$("#p-bd").html('<%= escape_javascript(render :partial => 'home/show_short_user_overview', :locals => {:user => current_user} ).html_safe %>');
 	alert('Profile has been saved Successfully');
-<% end %> 
-
+<% end %>
+<% if @skill %>
+	$("show_user_skill").html('<%= escape_javascript(render :partial => 'home/show_short_user_skill', :locals => {:user => current_user} ).html_safe %>');
+	alert('Skills has been saved Successfully');
+<% end %>

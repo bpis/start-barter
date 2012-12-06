@@ -1,0 +1,9 @@
+<%= form_for(skill = current_user.skills.find(skill), :url => update_user_info_path, :html => {:class => "edit_user", :remote => true }) do |f| %>
+	<%= hidden_field_tag :id, id %>
+	<%= f.label :name%>
+	<%= f.text_field :name %>
+	<%= f.select :proficiency, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]})%><br />
+	<%= f.submit "Update" %>
+<% end %>	
+<%= link_to "Back", edit_user_info_path, :class => "back", :id => "back_to_previous", :remote => true %>
+
