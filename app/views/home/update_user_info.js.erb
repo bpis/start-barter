@@ -10,3 +10,7 @@
 	$("#show_user_skill").html('<%= escape_javascript(render :partial => 'home/show_short_user_skill', :locals => {:user => current_user} ).html_safe %>');
 	alert('Skills has been saved Successfully');
 <% end %>
+<% if @experience %>
+	$("#show_user_experience").html('<%= escape_javascript(render :partial => 'home/show_short_user_experience', :locals => {:user => current_user} ).html_safe %>');
+	alert('Experience has been updated successfully');
+<% end %>

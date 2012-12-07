@@ -1048,4 +1048,10 @@ font-weight: bold;
 background-image: url("/assets/7px-bottom-leftcorner-white.gif");
 }
 
+.textarea_edit_experience{
+	resize: horizontal;
+  	height: 90px;
+ 	margin-bottom: 5px;
+ 	width: 350px;
 
+}

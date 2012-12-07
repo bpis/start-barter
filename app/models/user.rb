@@ -111,7 +111,7 @@ class User < ActiveRecord::Base
         end        
         user = User.new(username:auth.info.name.present? ? auth.info.name : "",
                         first_name:auth.extra.raw_info.firstName.present? ? auth.extra.raw_info.firstName : "",
-                        last_name:auth.extra.raw_info.lastName.present? ? auth.extra.raw_info.lastName : "",
+                           last_name:auth.extra.raw_info.lastName.present? ? auth.extra.raw_info.lastName : "",
                         provider:auth.provider.present? ? auth.provider :  "",
                         uid: auth.uid.present? ? auth.uid : "",
                         email: auth.extra.raw_info.emailAddress.present? ? auth.extra.raw_info.emailAddress : "",

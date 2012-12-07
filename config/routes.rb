@@ -22,16 +22,9 @@ StartBarter::Application.routes.draw do
       },
       :path => '',
       :path_names => {:sign_in => 'users/sign_in', :sign_out => 'users/sign_out', :sign_up => 'users/sign_up'}
-    
-    
+   
     resources :users 
- 
-       
-
-     
-    
-
-  root :to => 'home#index'
+    root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

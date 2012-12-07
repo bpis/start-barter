@@ -1,6 +1,4 @@
-
 <%= form_for(current_user.profile, :url => update_user_info_path, :html => {:class => "edit_user", :remote => true }) do |f| %>
-  
   Update Profile Overview <br />
   <%= f.label :overview %>
   <%= f.text_area :overview, :class => "textarea_overview" %><br />

@@ -1,0 +1,36 @@
+<div class="p-about-txt-jobProfile">
+	
+		<% if user.experiences.present? %>
+			<% user.experiences.each do |experience| %>
+				<div class="p-cred-title-2">
+					<div class="left">
+						<%= experience.company_name %>
+						<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_experience_#{experience.id}", :title => "Edit Experience", :style => "position: relative; z-index: 1;margin-top:12px; top: -10px; left: 14px;", :remote => true %>
+						<%= experience.location %>
+					</div>
+					<div class="clear"></div>
+					<div class="p-cred-subtitle">
+						<%= experience.title %>
+					</div>
+					<div class="p-cred-subtitle-3">
+						<% if experience.start_date.present? %>
+							From <%= experience.start_date %> 
+						<% end %>
+						<% if experience.end_date.present? %>
+							to <%= experience.end_date %>
+						<% end %>
+					</div>
+				</div>
+				<div class="p-cred-verif-editMode"></div>
+				<div class="clear"></div>
+				<div class="p-cred-desc">
+					<%= experience.description %>
+				</div>
+				<script>
+					$("#edit_experience_<%= experience.id %>").click(function(){
+						$("#show_user_experience").html('<%= escape_javascript(render :partial => 'edit_user_experience', :locals => {:experience => experience, :id => experience.id } ).html_safe %>');
+					});		
+				</script>
+			<% end %>
+		<% end %>
+</div>

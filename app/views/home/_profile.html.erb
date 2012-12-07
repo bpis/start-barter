@@ -67,35 +67,11 @@
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
 	<!-- Experience -->
+	
 	<h2 class="p-header padding_skill"> Experience </h2>
-	<div class="p-about-txt-jobProfile">
-		<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
-		<% if user.experiences.present? %>
-		<% user.experiences.each do |exp| %>
-		<div class="p-cred-title-2">
-			<div class="left">
-				<%= exp.company_name %>  <%= exp.location %>
-			</div>
-			<div class="clear"></div>
-			<div class="p-cred-subtitle">
-				<%= exp.title %>
-			</div>
-			<div class="p-cred-subtitle-3">
-				<% if exp.start_date.present? %>
-				From <%= exp.start_date %> 
-				<% end %>
-				<% if exp.end_date.present? %>
-					to <%= exp.end_date %>
-				<% end %>
-			</div>
-		</div>
-		<div class="p-cred-verif-editMode"></div>
-		<div class="clear"></div>
-		<div class="p-cred-desc">
-			<%= exp.description %>
-		</div>
-		<% end %>
-		<% end %>
+	<div class="clear"></div>
+	<div id="show_user_experience">
+		<%= render :partial => "show_short_user_experience", :locals => {:user => user} %>
 	</div>
 	<div class="clear"></div>
 	<div class="p-spacer"></div>

@@ -42,14 +42,18 @@ class HomeController < ApplicationController
    
     if params[:skill] && params[:id]
       @skill = current_user.skills.find(params[:id])
-       @skill.update_attributes(:name => params[:skill][:name], :proficiency => params[:skill][:proficiency])
+       #@skill.update_attributes(:name => params[:skill][:name], :proficiency => params[:skill][:proficiency])
+       @skill.update_attributes(params[:skill])
     end
+    
+    if params[:experience] && params[:id]
+      @experience = current_user.experiences.find(params[:id])
+      @experience.update_attributes(params[:experience]) 
+    end
+    
     respond_to do |format|
       format.js
     end
     
   end
-  
-
-
 end
