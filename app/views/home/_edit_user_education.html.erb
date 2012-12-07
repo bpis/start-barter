@@ -1,0 +1,16 @@
+<%= form_for(education = current_user.educations.find(education), :url => update_user_info_path, :html => {:class => "edit_user", :remote => true}) do |f| %>
+	<%= hidden_field_tag :id, id %>
+	<%= f.label :school_name %>
+	<%= f.text_field :school_name %><br /><br />
+	<%= f.label :field_of_study %>
+	<%= f.text_field :field_of_study %><br /><br />
+	<%= f.label :degree %>
+	<%= f.text_field :degree %><br /><br />
+	<%= f.label :grade %>
+	<%= f.text_field :grade %><br /><br />
+	<%= f.label :activities %>
+	<%= f.text_area :activities %><br /><br />
+	<%= f.label :notes %>
+	<%= f.text_area :notes %><br /><br />
+	<%= f.submit "update" %>
+<% end %>

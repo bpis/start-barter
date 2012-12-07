@@ -1,0 +1,45 @@
+<div class="p-about-txt-jobProfile">
+		<% if user.educations.present? %>
+			<% user.educations.each do |education| %>
+			<div class="p-cred-title-2">
+				<div class="left">
+					<%= education.school_name %>  
+					<%= link_to "Edit", "#", :class => "edit-btn", :id => "edit_education_#{education.id}", :title => "Edit Experience", :style => "position: relative; z-index: 1;margin-top:12px; top: -10px; left: 14px;", :remote => true %>
+				</div>
+				<div class="clear"></div>
+				<div class="p-cred-subtitle">
+					<% if education.degree.present? %>
+						<%= education.degree %>,
+					<% end %>
+					<%= education.field_of_study %>
+				</div>
+				<div class="p-cred-subtitle-3">
+					<% if education.start_date.present? %>
+						From <%= education.start_date %> 
+					<% end %>
+					<% if education.end_date.present? %>
+						to <%= education.end_date %>
+					<% end %>
+				</div>
+			</div>
+			<div class="p-cred-verif-editMode"></div>
+			<div class="clear"></div>
+			<% if education.activities.present? %>
+				<div class="p-cred-desc">
+					Activities: <%= education.activities %>
+				</div>
+			<% end %>
+			<div class="clear"></div>
+			<% if education.notes.present? %>
+			<div class="p-cred-desc">
+				Notes: <%= education.notes %>
+			</div>
+			<script>
+				$("#edit_education_<%= education.id %>").click(function(){
+					$("#show_user_education").html('<%= escape_javascript(render :partial => 'edit_user_education', :locals => {:education => education, :id => education.id } ).html_safe %>');
+				});
+			</script>
+			<% end %>
+			<% end %>
+		<% end %>
+</div>

@@ -58,6 +58,7 @@
 		<%= render :partial => "show_short_user_overview", :locals => {:user => user} %>
 	</div>
 	<div class="p-spacer"></div>
+	
 	<!-- Skills -->
 	<h2 class="p-header padding_skill"> Skills </h2>
 	<div class="clear"></div>
@@ -66,59 +67,27 @@
 	</div>
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
-	<!-- Experience -->
 	
+	<!-- Experience -->	
 	<h2 class="p-header padding_skill"> Experience </h2>
 	<div class="clear"></div>
 	<div id="show_user_experience">
 		<%= render :partial => "show_short_user_experience", :locals => {:user => user} %>
 	</div>
+	
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
+	
 	<!-- Education -->
 	<h2 class="p-header padding_skill"> Education </h2>
-	<div class="p-about-txt-jobProfile">
-		<a class="edit-btn" href="/edit" title="Edit Basic Information"><span>Edit</span></a>
-		<% if user.educations.present? %>
-		<% user.educations.each do |edu| %>
-		<div class="p-cred-title-2">
-			<div class="left">
-				<%= edu.school_name %>  
-			</div>
-			<div class="clear"></div>
-			<div class="p-cred-subtitle">
-				<% if edu.degree.present? %>
-					<%= edu.degree %>,
-				<% end %>
-				<%= edu.field_of_study %>
-			</div>
-			<div class="p-cred-subtitle-3">
-				<% if edu.start_date.present? %>
-					From <%= edu.start_date %> 
-				<% end %>
-				<% if edu.end_date.present? %>
-					to <%= edu.end_date %>
-				<% end %>
-			</div>
-		</div>
-		<div class="p-cred-verif-editMode"></div>
-		<div class="clear"></div>
-		<% if edu.activities.present? %>
-		<div class="p-cred-desc">
-			 Activities: <%= edu.activities %>
-		</div>
-		<% end %>
-		<div class="clear"></div>
-		<% if edu.notes.present? %>
-		<div class="p-cred-desc">
-			 Notes: <%= edu.notes %>
-		</div>
-		<% end %>
-		<% end %>
-		<% end %>
+	<div class="clear"></div>
+	<div id="show_user_education">
+		<%= render :partial => "show_short_user_education", :locals => {:user => user} %>
 	</div>
+	
 	<div class="clear"></div>
 	<div class="p-spacer"></div>
+	
 	<!-- KeyWords -->
 	<div id="p-keywords">
 		<h2 class="p-header padding_keyword">Keywords</h2>

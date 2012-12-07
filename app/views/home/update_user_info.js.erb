@@ -14,3 +14,7 @@
 	$("#show_user_experience").html('<%= escape_javascript(render :partial => 'home/show_short_user_experience', :locals => {:user => current_user} ).html_safe %>');
 	alert('Experience has been updated successfully');
 <% end %>
+<% if @education %>
+	$("#show_user_education").html('<%= escape_javascript(render :partial => 'home/show_short_user_education', :locals => {:user => current_user} ).html_safe %>');
+	alert('Educations has been updated successfully');
+<% end %>

@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @users = User.all
     @skills = Skill.all
     @experiences = Experience.all
+    @educations = Education.all
     user = current_user
   end
 
@@ -51,6 +52,10 @@ class HomeController < ApplicationController
       @experience.update_attributes(params[:experience]) 
     end
     
+    if params[:education] && params[:id]
+      @education = current_user.educations.find(params[:id])
+       @education.update_attributes(params[:education])
+    end
     respond_to do |format|
       format.js
     end
